@@ -1,0 +1,17 @@
+/**
+ * Http demo
+ */
+
+@import "../../../styles/variables";
+
+:host /deep/ button {
+  width: 6em;
+}
+
+.http-demo-item {
+  margin-bottom: $gap;
+}
+
+.http-data {
+  margin: 0 $gap;
+}

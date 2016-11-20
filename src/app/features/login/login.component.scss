@@ -1,0 +1,17 @@
+/**
+ * Login
+ */
+
+@import "../../../styles/variables";
+
+.login {
+  margin: $gap * 5 auto;
+  width: max-content;
+
+  h1 {
+    font-size: 2em;
+    font-weight: 500;
+    margin: $gap auto;
+    text-align: center;
+  }
+}

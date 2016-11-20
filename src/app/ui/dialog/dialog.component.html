@@ -1,0 +1,14 @@
+<i class="dialog-close iconfont icon-close"
+   (click)="close()"></i>
+
+<h1 class="dialog-title"
+    *ngIf="title">{{title}}</h1>
+
+<div class="dialog-content"
+     [ngClass]="{ 'no-title': !title }">
+  <ng-content></ng-content>
+</div>
+
+<div class="dialog-footer">
+  <ng-content select="footer"></ng-content>
+</div>

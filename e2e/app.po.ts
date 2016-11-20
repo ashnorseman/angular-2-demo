@@ -1,11 +1,11 @@
 import { browser, element, by } from 'protractor';
 
-export class OracleBoneScriptPage {
+export class Angular2Seed {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('ph-root h1')).getText();
   }
 }

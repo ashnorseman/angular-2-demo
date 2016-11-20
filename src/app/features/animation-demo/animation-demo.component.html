@@ -1,0 +1,14 @@
+<h2>Toggle between status</h2>
+
+<div class="animation-toggle"
+     [@toggleState]="toggleState"
+     (click)="switchToggleState()">Click me!</div>
+
+<h2>Adding and removing</h2>
+
+<ph-button (onButtonClick)="add()">Add Item</ph-button>
+
+<ul class="animation-fly"><li class="animation-fly-item"
+      *ngFor="let item of list; let i = index;"
+      [@flyInOut]
+      (click)="remove(i)">{{item}}</li></ul>

@@ -1,0 +1,24 @@
+/**
+ * Home page
+ */
+
+@import '../../../styles/variables.scss';
+
+:host {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 $gap;
+  width: 1200px;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 500;
+  margin: $gap 0;
+  text-align: center;
+}
+
+.logout {
+  text-align: right;
+}

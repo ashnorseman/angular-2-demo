@@ -1,0 +1,41 @@
+<h2>Two-way data binding</h2>
+
+<p>Enter text: <input type="text" [(ngModel)]="title"></p>
+
+<p>Result: {{title}}</p>
+
+<h2>Events</h2>
+
+<ph-button (onButtonClick)="openDialog(dialog)">Show Dialog</ph-button>
+
+<ph-dialog #dialog title="Dialog Demo">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque cupiditate laboriosam placeat qui, tempore
+    voluptatem! Amet atque commodi consequatur cum illo impedit, maxime, nam natus pariatur placeat quaerat quasi
+    similique.</p>
+  <p>Ipsum, optio quos. Beatae deleniti error esse facilis harum id iure laudantium, libero nihil odit officia
+    perferendis quae quaerat quasi sequi sit, veritatis. Blanditiis molestiae nisi, quisquam quo temporibus totam!</p>
+  <p>Ab animi at deleniti distinctio doloremque dolores dolorum et excepturi fuga fugit harum, in ipsum laboriosam minus
+    necessitatibus nihil non officiis optio praesentium, quae quibusdam recusandae rem reprehenderit sint vel!</p>
+  <p>Eaque eius est exercitationem in laudantium, vel. Assumenda consequuntur enim, esse ex, facere laboriosam magni
+    minima neque nesciunt optio quidem repellendus temporibus. Cupiditate illum labore modi necessitatibus similique
+    velit, vitae?</p>
+  <p>A ab accusantium at corporis eligendi incidunt labore necessitatibus nemo nisi non odit, praesentium recusandae rem
+    sequi veritatis vero voluptates voluptatum! Delectus eaque eveniet labore nobis odio, omnis sint tempora?</p>
+  <p>Ab alias autem ducimus enim harum impedit, nulla, odio optio placeat soluta veritatis voluptas. Accusantium, at
+    blanditiis dolore dolores dolorum, illo in ipsam laborum obcaecati perferendis possimus, provident repudiandae
+    vel!</p>
+  <p>Alias blanditiis cumque debitis delectus dolores earum excepturi exercitationem ipsum iste minus molestiae non
+    porro quis sunt ut vero, voluptas. Commodi cumque esse est omnis perspiciatis quia sapiente, velit voluptatum?</p>
+  <p>Dicta dignissimos doloremque in incidunt maiores non provident reiciendis repellat reprehenderit sint? Adipisci
+    asperiores eius excepturi id ipsum iure labore magni, optio pariatur, quidem quo quod quos, suscipit. Consectetur,
+    dolorem!</p>
+  <p>Ab blanditiis dolores doloribus eos illo incidunt natus non placeat qui quod sapiente, sed, soluta totam vel
+    voluptates. Accusamus amet architecto iste similique voluptate. Dolorem fuga illo porro quos reiciendis!</p>
+  <p>Alias minima, repellat. Aperiam, est exercitationem expedita harum hic, id labore maxime numquam soluta suscipit,
+    ullam vero voluptate voluptates! Asperiores enim hic, ipsa nemo quae quidem sit. Fuga, impedit laborum!</p>
+
+  <footer>
+    <ph-button (onButtonClick)="dialog.close()">Cancel</ph-button>
+    <ph-button (onButtonClick)="dialog.close()">OK</ph-button>
+  </footer>
+</ph-dialog>

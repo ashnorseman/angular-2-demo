@@ -1,0 +1,44 @@
+/**
+ * Animation demo
+ */
+
+@import "../../../styles/variables";
+
+.animation-toggle {
+  background: white;
+  border: 1px solid;
+  cursor: pointer;
+  height: 10em;
+  line-height: 10em;
+  text-align: center;
+  width: 25%;
+
+  &:hover {
+    background: whitesmoke;
+  }
+}
+
+.animation-fly {
+  border: 1px solid;
+  margin-top: $gap;
+  overflow: hidden;
+
+  &:empty {
+    border: 0;
+  }
+}
+
+.animation-fly-item {
+  background: whitesmoke;
+  border-bottom: 1px solid;
+  cursor: pointer;
+  padding: .25em .5em;
+
+  &:hover {
+    background: gainsboro;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}

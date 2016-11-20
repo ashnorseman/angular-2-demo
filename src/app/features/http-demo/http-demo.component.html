@@ -1,0 +1,22 @@
+<div class="http-demo-item">
+  <ph-button class="button" (onButtonClick)="getMethod()">Get</ph-button>
+  <span class="http-data">Response Data: {{getResponse | async | json}}</span>
+  <input type="text"
+         placeholder="get param"
+         [(ngModel)]="getParam"
+         (ngModelChange)="getMethod()">
+</div>
+
+<div class="http-demo-item">
+  <ph-button class="button" (onButtonClick)="postMethod()">Post</ph-button>
+  <span class="http-data">Response Data: {{postResponse | async | json}}</span>
+  <input type="text"
+         placeholder="post data"
+         [(ngModel)]="postData"
+         (ngModelChange)="postMethod()">
+</div>
+
+<div class="http-demo-item">
+  <ph-button class="button" (onButtonClick)="postError()">Post Error</ph-button>
+  <span class="http-data">Error Message: {{errorMessage}}</span>
+</div>

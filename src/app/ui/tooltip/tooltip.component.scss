@@ -1,0 +1,16 @@
+/**
+ * Tooltip
+ */
+
+
+@import "../../../styles/variables";
+
+:host {
+  background: white;
+  border: 1px solid;
+  padding: .25em .5em;
+  position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $z-modal + 1; // keep it above an open modal
+}

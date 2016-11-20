@@ -1,0 +1,54 @@
+/**
+ * Dialog
+ */
+
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+:host {
+  @include modal;
+  background: white;
+  border: 1px solid;
+
+  &.opened {
+    @include modal-opened;
+  }
+}
+
+.dialog-close {
+  @include square(1em * 2);
+
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.dialog-title {
+  @include ellipsis;
+
+  border-bottom: 1px solid;
+  line-height: 2;
+  padding-left: .5em;
+  padding-right: 2em;
+}
+
+.dialog-content {
+  max-height: 80vh;
+  overflow: auto;
+  padding: .25em .5em;
+
+  &.no-title {
+    padding-right: 2em;
+  }
+}
+
+.dialog-footer {
+  border-top: 1px solid;
+  padding: .5em;
+  text-align: right;
+
+  &:empty {
+    display: none;
+  }
+}
