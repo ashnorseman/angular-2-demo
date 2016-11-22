@@ -3,10 +3,12 @@
  */
 
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 
+import { Data } from './models/data.model';
 import { GridOption } from './models/grid-option.model';
+import { Query } from './models/query.model';
 import { ScrollBarWidth } from '../utils/ScrollBarWidth';
+import { Subject } from "rxjs";
 
 
 @Component({
@@ -21,17 +23,40 @@ export class GridComponent implements OnInit {
 
   ScrollBarWidth: number = ScrollBarWidth;
 
-  data: Observable<any[]>;
+  data: Data = <Data>{};
   private selectedRows: number[] = [];
+  private currentPage = new Subject<number>();
 
   constructor() { }
 
   ngOnInit() {
+    if (!this.options.query) {
+      this.options.query = new Query();
+    }
+
+    this.currentPage
+      .debounceTime(300)
+      .distinctUntilChanged()
+      .subscribe(currentPage => {
+        this.options.query.currentPage = currentPage;
+        this.query();
+      });
+
     this.query();
   }
 
   clickRow(row: any) {
     this.onClickRow.emit({ row });
+  }
+
+
+  previousPage() {
+    this.currentPage.next(this.options.query.currentPage - 1);
+  }
+
+
+  nextPage() {
+    this.currentPage.next(this.options.query.currentPage + 1);
   }
 
 
@@ -43,7 +68,10 @@ export class GridComponent implements OnInit {
     const method = this.options.method;
 
     if (resource && resource[method]) {
-      this.data = resource[method]();
+      resource[method](this.options.query)
+        .subscribe(
+          (res) => this.data = res
+        );
     }
   }
 
@@ -60,5 +88,14 @@ export class GridComponent implements OnInit {
     } else {
       this.selectedRows.splice(findIndex, 1);
     }
+  }
+
+
+  /**
+   * Go to a page
+   * @param page
+   */
+  turnPage(page: number) {
+    this.currentPage.next(page);
   }
 }

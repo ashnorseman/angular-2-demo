@@ -43,12 +43,20 @@ export class DataBindingDemoComponent implements OnInit {
         field: 'height',
         text: 'Height',
         align: 'right'
+      }, {
+        text: 'Height',
+        template: '<button type="button" (click)="column.edit(data); $event.stopPropagation();">Edit</button>',
+        edit: this.edit
       }]
     };
   }
 
   clickRow($event) {
     alert(JSON.stringify($event.row));
+  }
+
+  edit(data) {
+    alert(`Editing ${data.name}`);
   }
 
   openDialog(dialog) {

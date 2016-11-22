@@ -7,6 +7,9 @@ import { Headers, Http, Response, RequestOptions, URLSearchParams } from '@angul
 
 import { Observable } from 'rxjs/Observable';
 
+import { Data } from '../ui/grid/models/data.model';
+import { Query } from '../ui/grid/models/query.model';
+
 
 @Injectable()
 export class TestHttpService {
@@ -39,9 +42,19 @@ export class TestHttpService {
       .catch(this.handleError);
   }
 
-  getUsers(): Observable<any[]> {
+  getUsers(query?: Query): Observable<any[]> {
+    const searchParams = new URLSearchParams();
+
+    if (query) {
+      for (let key of Object.keys(query)) {
+        searchParams.set(key, query[key]);
+      }
+    }
+
     return this.http
-      .get('/api/grid-resources')
+      .get('/api/grid-resources', {
+        search: searchParams
+      })
       .map(this.extractData)
       .catch(this.handleError);
   }

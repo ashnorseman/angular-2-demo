@@ -19,7 +19,7 @@ export class AuthenticationService {
     private http: Http
   ) { }
 
-  login(username: string, password: string): Observable<null> {
+  login(username: string, password: string): Observable<void> {
 
     return this.http
       .post('/api/authenticate', { username, password }, this.options)

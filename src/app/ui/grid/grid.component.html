@@ -28,7 +28,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let row of data | async; let i = index;"
+      <tr *ngFor="let row of data.list; let i = index;"
           (click)="clickRow(row)">
         <td *ngIf="options.selectable"
             class="grid-select">
@@ -45,3 +45,18 @@
     </tbody>
   </table>
 </div>
+
+<footer class="grid-footer">
+  <button type="button"
+          class="grid-footer-button"
+          [disabled]="options.query.currentPage === 1"
+          (click)="previousPage()">上一页</button>
+  <input type="text"
+         class="grid-footer-page"
+         #page
+         (input)="turnPage(page.value)">
+  <button type="button"
+          class="grid-footer-button"
+          [disabled]="options.query.currentPage === data.totalPages"
+          (click)="nextPage()">下一页</button>
+</footer>

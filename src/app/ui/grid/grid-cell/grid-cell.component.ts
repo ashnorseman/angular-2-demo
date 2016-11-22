@@ -65,6 +65,7 @@ export class GridCellComponent implements AfterViewInit, OnChanges, OnInit, OnDe
     })
     class GridCellContentComponent {
       @Input() public data: any;
+      @Input() public column: Column;
     }
 
     @NgModule({
@@ -89,6 +90,7 @@ export class GridCellComponent implements AfterViewInit, OnChanges, OnInit, OnDe
         let component: GridCellContentComponent = this.componentRef.instance;
 
         component.data = data;
+        component.column = this.column;
       });
   }
 }
