@@ -42,7 +42,7 @@ export class GridComponent implements OnInit {
         this.query();
       });
 
-    this.query();
+    this.turnPage(1);
   }
 
   clickRow(row: any) {
@@ -51,12 +51,12 @@ export class GridComponent implements OnInit {
 
 
   previousPage() {
-    this.currentPage.next(this.options.query.currentPage - 1);
+    this.turnPage(this.options.query.currentPage - 1);
   }
 
 
   nextPage() {
-    this.currentPage.next(this.options.query.currentPage + 1);
+    this.turnPage(this.options.query.currentPage + 1);
   }
 
 
@@ -95,7 +95,9 @@ export class GridComponent implements OnInit {
    * Go to a page
    * @param page
    */
-  turnPage(page: number) {
-    this.currentPage.next(page);
+  turnPage(page: number | string) {
+    page = Math.min(Math.max(1, +page || 0), this.data.totalPages || 1);
+
+    this.currentPage.next(+page);
   }
 }

@@ -44,9 +44,9 @@ export class DataBindingDemoComponent implements OnInit {
         text: 'Height',
         align: 'right'
       }, {
-        text: 'Height',
         template: '<button type="button" (click)="column.edit(data); $event.stopPropagation();">Edit</button>',
-        edit: this.edit
+        edit: this.edit,
+        align: 'center'
       }]
     };
   }

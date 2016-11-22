@@ -51,10 +51,10 @@
           class="grid-footer-button"
           [disabled]="options.query.currentPage === 1"
           (click)="previousPage()">上一页</button>
-  <input type="text"
+  <input type="number"
          class="grid-footer-page"
-         #page
-         (input)="turnPage(page.value)">
+         [(ngModel)]="options.query.currentPage"
+         (input)="turnPage(options.query.currentPage)">
   <button type="button"
           class="grid-footer-button"
           [disabled]="options.query.currentPage === data.totalPages"
