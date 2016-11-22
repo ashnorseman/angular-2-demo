@@ -15,4 +15,4 @@ if (environment.production) {
 }
 
 // compiles the application in the browser and then launches the app
-platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic().bootstrapModule(AppModule)

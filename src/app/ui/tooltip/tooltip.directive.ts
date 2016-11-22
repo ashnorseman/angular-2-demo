@@ -13,7 +13,7 @@ import { TooltipComponent } from './tooltip.component';
 export class TooltipDirective {
   private tooltip: TooltipComponent;
 
-  @Input('phTooltip') tooltipText: string;
+  @Input('phTooltip') phTooltip: string;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -27,13 +27,13 @@ export class TooltipDirective {
    */
   @HostListener('mouseenter', ['$event'])
   onMouseEnter($event: MouseEvent) {
-    if (this.tooltip) return;
+    if (this.tooltip) { return; }
 
     let toolTipFactory = this.componentFactoryResolver.resolveComponentFactory(TooltipComponent);
 
     this.tooltip = this.viewContainerRef.createComponent(toolTipFactory, 0).instance;
 
-    this.tooltip.message = this.tooltipText;
+    this.tooltip.message = this.phTooltip;
     this.tooltip.x = $event.pageX + 'px';
     this.tooltip.y = $event.pageY + 'px';
   }
@@ -44,7 +44,7 @@ export class TooltipDirective {
    */
   @HostListener('mouseleave')
   onMouseLeave() {
-    if (!this.tooltip) return;
+    if (!this.tooltip) { return; }
 
     this.viewContainerRef.remove(0);
     this.tooltip = null;

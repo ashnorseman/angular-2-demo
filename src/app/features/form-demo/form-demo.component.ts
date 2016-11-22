@@ -45,6 +45,6 @@ export class FormDemoComponent implements OnInit {
           mismatchStartEnd: true
         };
       }
-    }
+    };
   }
 }

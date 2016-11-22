@@ -1,0 +1,47 @@
+<div class="grid-header"
+     [ngStyle]="{ 'border-right-width': ScrollBarWidth + 'px' }">
+  <table>
+    <thead>
+      <tr>
+        <th *ngIf="options.selectable"
+            class="grid-select"></th>
+
+        <th *ngFor="let column of options.columns"
+            [ngStyle]="{ 'text-align': column.align }">{{column.text}}
+        </th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+<div class="grid-data">
+  <table>
+    <thead>
+      <tr>
+        <th *ngIf="options.selectable"
+            class="grid-select"></th>
+
+        <th *ngFor="let column of options.columns"
+            [ngStyle]="{ 'text-align': column.align }">{{column.text}}
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let row of data | async; let i = index;"
+          (click)="clickRow(row)">
+        <td *ngIf="options.selectable"
+            class="grid-select">
+          <input type="checkbox"
+                 (change)="toggleSelect(i)"
+                 (click)="$event.stopPropagation()">
+        </td>
+
+        <td *ngFor="let column of options.columns"
+            [ngStyle]="{ 'text-align': column.align }">
+          <ph-grid-cell [column]="column" [data]="row"></ph-grid-cell>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -49,7 +49,7 @@ export class DialogComponent implements OnInit {
   // click on the body mask to close the dialog
   @HostListener('document:click', ['$event'])
   private onDocumentClick($event: MouseEvent): void {
-    if (!this.opened || $event.target !== document.body) return;
+    if (!this.opened || $event.target !== document.body) { return; }
 
     this.close();
   }

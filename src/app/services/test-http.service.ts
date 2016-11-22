@@ -39,6 +39,13 @@ export class TestHttpService {
       .catch(this.handleError);
   }
 
+  getUsers(): Observable<any[]> {
+    return this.http
+      .get('/api/grid-resources')
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   postMethod(data): Observable<Object> {
     return this.http
       .post(this.url, data, this.options)

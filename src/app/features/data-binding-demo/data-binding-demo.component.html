@@ -4,6 +4,11 @@
 
 <p>Result: {{title}}</p>
 
+<h2>Data grid</h2>
+
+<ph-grid [options]="gridOptions"
+         (onClickRow)="clickRow($event)"></ph-grid>
+
 <h2>Events</h2>
 
 <ph-button (onButtonClick)="openDialog(dialog)">Show Dialog</ph-button>

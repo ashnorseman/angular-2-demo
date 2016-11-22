@@ -64,6 +64,6 @@ export class AnimationDemoComponent implements OnInit {
   switchToggleState() {
     this.toggleState = (this.toggleState === 'inactive')
       ? 'active'
-      : 'inactive'
+      : 'inactive';
   }
 }

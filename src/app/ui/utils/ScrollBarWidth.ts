@@ -12,7 +12,7 @@ export const ScrollBarWidth = (function () {
   width -= document.body.clientWidth;
 
   if (!width) {
-    width = document.body.offsetWidth - document.body.clientWidth
+    width = document.body.offsetWidth - document.body.clientWidth;
   }
 
   document.body.style.overflow = '';

@@ -1,0 +1,63 @@
+/**
+ * Grid
+ */
+
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+:host {
+  border-bottom: 1px;
+  display: block;
+  height: 30em;
+  position: relative;
+}
+
+:host /deep/ img {
+  max-width: 5rem;
+  vertical-align: middle;
+}
+
+table {
+  background: white;
+  border: 1px solid;
+}
+
+tbody > tr {
+  cursor: pointer;
+
+  &:hover {
+    background: whitesmoke;
+  }
+}
+
+th,
+td {
+  border: 1px solid;
+  padding: .25em;
+}
+
+.grid-select {
+  box-sizing: content-box;
+  padding-left: .5em;
+  padding-right: .5em;
+  width: 13px;
+
+  input {
+    vertical-align: .1em;
+  }
+}
+
+.grid-header {
+  border-right: solid transparent;
+  position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.grid-data {
+  @include full-size;
+
+  overflow-y: scroll;
+}

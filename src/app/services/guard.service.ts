@@ -14,7 +14,7 @@ export class GuardService implements CanActivate {
   ) { }
 
   canActivate() {
-    if (localStorage.getItem('currentUser')) return true;
+    if (localStorage.getItem('currentUser')) { return true; }
 
     this.router.navigate(['/login']);
 

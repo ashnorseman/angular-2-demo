@@ -48,8 +48,6 @@
     "no-string-literal": false,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
-    "no-unused-expression": true,
-    "no-unused-variable": true,
     "no-unreachable": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
@@ -93,8 +91,8 @@
       "check-type"
     ],
 
-    "directive-selector-prefix": [true, "app"],
-    "component-selector-prefix": [true, "app"],
+    "directive-selector-prefix": [true, "ph"],
+    "component-selector-prefix": [true, "ph"],
     "directive-selector-name": [true, "camelCase"],
     "component-selector-name": [true, "kebab-case"],
     "directive-selector-type": [true, "attribute"],

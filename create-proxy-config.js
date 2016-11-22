@@ -1,21 +1,44 @@
 /**
- * Create proxy.conf.json with local ip address
+ * Create proxy.conf.json
+ * with local ip address or real backend address
  */
 
 
-const fs = require('fs');
 const childProcess = require('child_process');
+const fs = require('fs');
+const os = require('os');
 
-const command = 'ipconfig getifaddr en0';
+const mockPort = 4300;
+const realBackendHost = 'http://www.google.com';
 
 
-childProcess.exec(command, (error, ip) => {
+if (process.env.BACKEND) {
 
-  fs.readFile('./proxy.conf.template.json', 'utf8', (err, data) => {
-    const result = data.replace(/\/\/([^:]+)/, `//${ip}`).replace(/\n:/g, ':');
+  // connect to a real backend
+  replaceHost(realBackendHost);
+} else {
 
-    fs.writeFile('./proxy.conf.json', result, 'utf8', (err) => {
+  // connect to the mock server
+  // can not run on windows systems
+  if (os.platform() === 'win32') return;
+
+  const getIpCommand = 'ipconfig getifaddr en0';
+
+  childProcess.exec(getIpCommand, (error, ip) => {
+    replaceHost(`http://${ip}:${mockPort}`);
+  });
+}
+
+
+function replaceHost(host) {
+  const templatePath = './proxy.conf.template.json';
+  const targetPath = './proxy.conf.json';
+
+  fs.readFile(templatePath, 'utf8', (err, data) => {
+    const result = data.replace(/localhost/, host).replace(/\n:/g, ':');
+
+    fs.writeFile(targetPath, result, 'utf8', (err) => {
       if (err) return console.log(err);
     });
   });
-});
+}
