@@ -4,19 +4,19 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "npm run proxy & npm run server & npm run client",
-    "connect": "npm run proxy-backend & npm run client",
-    "prebuild": "npm run lint",
-    "precommit": "npm run lint",
     "build": "ng build --prod",
+    "client": "ng serve --host=0.0.0.0 --proxy-config proxy.conf.json",
+    "connect": "npm run proxy-backend & npm run client",
+    "e2e": "protractor",
+    "lint": "tslint \"src/**/*.ts\"",
+    "prebuild": "npm run lint",
+    "pree2e": "webdriver-manager update",
+    "prepush": "npm run lint",
     "proxy": "node create-proxy-config",
     "proxy-backend": "BACKEND=1 node create-proxy-config",
-    "client": "ng serve --host=0.0.0.0 --proxy-config proxy.conf.json",
     "server": "node server",
-    "lint": "tslint \"src/**/*.ts\"",
-    "test": "ng test",
-    "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "start": "npm run proxy & npm run server & npm run client",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
