@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { COMPILER_PROVIDERS } from '@angular/compiler';
 
-import { ButtonComponent } from './button/button.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 import { GridComponent } from './grid/grid.component';
 import { GridCellComponent } from './grid/grid-cell/grid-cell.component';
 import { DialogComponent } from './dialog/dialog.component';
@@ -25,8 +25,8 @@ import { TooltipDirective } from './tooltip/tooltip.directive';
     RouterModule
   ],
   declarations: [
-    ButtonComponent,
     DialogComponent,
+    DropdownComponent,
     GridCellComponent,
     GridComponent,
     TooltipComponent,
@@ -37,9 +37,9 @@ import { TooltipDirective } from './tooltip/tooltip.directive';
     TooltipComponent
   ],
   exports: [
-    ButtonComponent,
     GridComponent,
     DialogComponent,
+    DropdownComponent,
     TabsComponent,
     TooltipDirective
   ],

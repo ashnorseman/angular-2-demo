@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
+import { DropdownItem } from '../../ui/dropdown/dropdown-item-model';
+
 
 @Component({
   selector: 'ph-form-demo',
@@ -13,6 +15,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./form-demo.component.scss']
 })
 export class FormDemoComponent implements OnInit {
+  dropdownData: DropdownItem[];
   timeControls: FormGroup;
 
   constructor(
@@ -22,6 +25,14 @@ export class FormDemoComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('Form Demo');
+
+    this.dropdownData = <DropdownItem[]>[{
+      text: 'Item 1',
+      value: 1
+    }, {
+      text: 'Item 2 long long long',
+      value: 2
+    }];
 
     this.timeControls = this.formBuilder.group({
       start: ['', Validators.required],

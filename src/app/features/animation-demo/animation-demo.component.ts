@@ -21,7 +21,7 @@ import {
       state('inactive', style({
         transform: 'scale(1)'
       })),
-      state('active',   style({
+      state('active', style({
         transform: 'scale(1.2)'
       })),
       transition('inactive <=> active', animate('200ms ease-in-out'))

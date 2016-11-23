@@ -11,7 +11,8 @@
 
 <h2>Events</h2>
 
-<ph-button (onButtonClick)="openDialog(dialog)">Show Dialog</ph-button>
+<button type="button"
+        (click)="openDialog(dialog)">Show Dialog</button>
 
 <ph-dialog #dialog title="Dialog Demo">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque cupiditate laboriosam placeat qui, tempore
@@ -40,7 +41,9 @@
     ullam vero voluptate voluptates! Asperiores enim hic, ipsa nemo quae quidem sit. Fuga, impedit laborum!</p>
 
   <footer>
-    <ph-button (onButtonClick)="dialog.close()">Cancel</ph-button>
-    <ph-button (onButtonClick)="dialog.close()">OK</ph-button>
+    <button type="button"
+            (click)="dialog.close()">Cancel</button>
+    <button type="button"
+            (click)="dialog.close()">OK</button>
   </footer>
 </ph-dialog>

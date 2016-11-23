@@ -7,6 +7,9 @@
 @import "variables";
 @import "mixins";
 
+@import "form";
+
+
 body {
   font-size: 1rem;
   line-height: $line-height;

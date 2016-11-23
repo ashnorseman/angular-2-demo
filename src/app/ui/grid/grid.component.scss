@@ -59,17 +59,22 @@ tr:last-child > td {
 }
 
 .grid-header {
-  border-right: solid transparent;
+  border-bottom: 1px solid;
   position: absolute;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1;
+
+  th {
+    border-bottom: 0;
+  }
 }
 
 .grid-data {
   @include full-size;
 
+  top: 2em;
   bottom: 2em;
   overflow-y: scroll;
 }
@@ -91,15 +96,17 @@ tr:last-child > td {
 
 .grid-footer-button,
 .grid-footer-page {
-  background: white;
-  border: 1px solid;
   font-size: .875em;
   height: 1.5rem;
-  padding: 0 .25em;
+  line-height: 1.5rem;
 }
 
 .grid-footer-page {
   margin: 0 .25em;
   text-align: center;
   width: 4em;
+}
+
+.grid-footer-button {
+  padding: 0 .5em;
 }

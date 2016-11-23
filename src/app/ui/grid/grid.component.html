@@ -1,5 +1,5 @@
 <div class="grid-header"
-     [ngStyle]="{ 'border-right-width': ScrollBarWidth + 'px' }">
+     [ngStyle]="{ 'padding-right': ScrollBarWidth + 'px' }">
   <table>
     <thead>
       <tr>
@@ -16,17 +16,6 @@
 
 <div class="grid-data">
   <table>
-    <thead>
-      <tr>
-        <th *ngIf="options.selectable"
-            class="grid-select"></th>
-
-        <th *ngFor="let column of options.columns"
-            [ngStyle]="{ 'text-align': column.align }">{{column.text}}
-        </th>
-      </tr>
-    </thead>
-
     <tbody>
       <tr *ngFor="let row of data.list; let i = index;"
           (click)="clickRow(row)">

@@ -1,0 +1,9 @@
+<div class="dropdown-face"
+     (click)="toggle()">{{selected.text}}</div>
+
+<ul class="dropdown-list"
+    [@openState]="openState">
+  <li *ngFor="let item of data"
+      class="dropdown-item"
+      (click)="select(item)">{{item.text}}</li>
+</ul>
