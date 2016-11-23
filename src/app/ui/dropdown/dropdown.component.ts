@@ -8,7 +8,7 @@ import {
   state,
   style,
   trigger,
-  transition, HostListener
+  transition
 } from '@angular/core';
 
 import { DropdownItem } from './dropdown-item-model';

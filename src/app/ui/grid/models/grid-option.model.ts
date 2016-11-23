@@ -10,7 +10,7 @@ export class GridOption {
   columns: Column[] = [];
 
   resource?: Function;
-  method?: string;
+  method?: string = 'query';
   query: Query = <Query>{};
 
   selectable: boolean = false;

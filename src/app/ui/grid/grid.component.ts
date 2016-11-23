@@ -3,12 +3,12 @@
  */
 
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 
 import { Data } from './models/data.model';
 import { GridOption } from './models/grid-option.model';
 import { Query } from './models/query.model';
 import { ScrollBarWidth } from '../utils/ScrollBarWidth';
-import { Subject } from "rxjs";
 
 
 @Component({
@@ -65,7 +65,7 @@ export class GridComponent implements OnInit {
    */
   query() {
     const resource = this.options.resource;
-    const method = this.options.method;
+    const method = this.options.method || 'query';
 
     if (resource && resource[method]) {
       resource[method](this.options.query)

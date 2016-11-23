@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { TestHttpService } from '../../services/test-http.service';
+import { Crud, Resource } from '../../services/resource-factory';
 
 
 @Component({
@@ -16,37 +16,63 @@ import { TestHttpService } from '../../services/test-http.service';
   styleUrls: ['./http-demo.component.scss']
 })
 export class HttpDemoComponent implements OnInit {
+  httpResource: Crud;
+
   getParam: string;
   postData: string;
+  putData: string;
+  deleteParam: string;
 
   errorMessage: string;
   getResponse: Observable<Object>;
   postResponse: Observable<Object>;
+  putResponse: Observable<Object>;
+  deleteResponse: Observable<Object>;
 
   private getMethodStream = new Subject<string>();
   private postMethodStream = new Subject<string>();
+  private putMethodStream = new Subject<string>();
+  private deleteMethodStream = new Subject<string>();
 
   constructor(
-    private testHttpService: TestHttpService,
+    private resource: Resource,
     private titleService: Title
   ) {
+    this.httpResource = this.resource.create('/api/test', {
+      postError: {
+        url: '/api/test/error',
+        method: 'post'
+      }
+    });
 
     // debounce user input
 
     this.getResponse = this.getMethodStream
       .debounceTime(300)
       .distinctUntilChanged()
-      .switchMap((getParam?: string) => this.testHttpService
-        .getMethod({
+      .switchMap((getParam?: string) => this.httpResource.query({
           param: getParam
         }));
 
     this.postResponse = this.postMethodStream
       .debounceTime(300)
       .distinctUntilChanged()
-      .switchMap((postData?: string) => this.testHttpService
-        .postMethod({
+      .switchMap((postData?: string) => this.httpResource.post({
           postData: this.postData
+        }));
+
+    this.putResponse = this.putMethodStream
+      .debounceTime(300)
+      .distinctUntilChanged()
+      .switchMap((postData?: string) => this.httpResource.put({
+          postData: this.postData
+        }));
+
+    this.deleteResponse = this.deleteMethodStream
+      .debounceTime(300)
+      .distinctUntilChanged()
+      .switchMap((deleteParam?: string) => this.httpResource.delete({
+          param: deleteParam
         }));
   }
 
@@ -62,9 +88,16 @@ export class HttpDemoComponent implements OnInit {
     this.postMethodStream.next(this.postData);
   }
 
+  putMethod() {
+    this.putMethodStream.next(this.putData);
+  }
+
+  deleteMethod() {
+    this.deleteMethodStream.next(this.deleteParam);
+  }
+
   postError() {
-    this.testHttpService
-      .postError()
+    this.httpResource['postError']()
       .subscribe(
         () => {},
         (error) => this.errorMessage = error

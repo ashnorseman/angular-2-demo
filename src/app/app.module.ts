@@ -12,9 +12,9 @@ import { AppComponent } from './app.component';
 import { FeaturesModule } from './features/features.module';
 import { UIModule } from './ui/ui.module';
 
+import { Resource } from './services/resource-factory';
 import { AuthenticationService } from './services/authentication.service';
 import { GuardService } from './services/guard.service';
-import { TestHttpService } from './services/test-http.service';
 
 
 @NgModule({
@@ -37,9 +37,9 @@ import { TestHttpService } from './services/test-http.service';
     AppComponent
   ],
   providers: [
+    Resource,
     AuthenticationService,
-    GuardService,
-    TestHttpService
+    GuardService
   ],
   bootstrap: [AppComponent]
 })

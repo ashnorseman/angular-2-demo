@@ -3,29 +3,27 @@
  */
 
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+
+import { Crud, Resource } from './resource-factory';
 
 
 @Injectable()
 export class AuthenticationService {
-  private options: RequestOptions = new RequestOptions({
-    headers: new Headers({
-      'Content-Type': 'application/json'
-    })
-  });
+  private loginResource: Crud;
 
   constructor(
-    private http: Http
-  ) { }
+    private resource: Resource
+  ) {
+    this.loginResource = this.resource.create('/api/authenticate');
+  }
 
   login(username: string, password: string): Observable<void> {
 
-    return this.http
-      .post('/api/authenticate', { username, password }, this.options)
-      .map((res: Response) => {
-        let user = res.json();
-
+    return this.loginResource.post({
+        username, password
+      })
+      .map((user) => {
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }

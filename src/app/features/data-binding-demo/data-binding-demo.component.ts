@@ -5,7 +5,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { TestHttpService } from '../../services/test-http.service';
+import { Crud, Resource } from '../../services/resource-factory';
 
 
 @Component({
@@ -14,21 +14,22 @@ import { TestHttpService } from '../../services/test-http.service';
   styleUrls: ['./data-binding-demo.component.scss']
 })
 export class DataBindingDemoComponent implements OnInit {
-
+  gridResource: Crud;
   gridOptions: any;
 
   constructor(
-    private titleService: Title,
-    private testHttpService: TestHttpService
-  ) { }
+    private resource: Resource,
+    private titleService: Title
+  ) {
+    this.gridResource = this.resource.create('/api/grid-resources');
+  }
 
   ngOnInit(): void {
     this.titleService.setTitle('Data-binding Demo');
 
     this.gridOptions = {
       selectable: true,
-      resource: this.testHttpService,
-      method: 'getUsers',
+      resource: this.gridResource,
 
       columns: [{
         text: 'Avatar',
