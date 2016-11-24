@@ -28,7 +28,8 @@
 
         <td *ngFor="let column of options.columns"
             [ngStyle]="{ 'text-align': column.align }">
-          <ph-grid-cell [column]="column" [data]="row"></ph-grid-cell>
+          <ph-grid-cell [column]="column"
+                        [data]="row"></ph-grid-cell>
         </td>
       </tr>
     </tbody>
@@ -38,7 +39,7 @@
 <footer class="grid-footer">
   <button type="button"
           class="grid-footer-button"
-          [disabled]="options.query.currentPage === 1"
+          [disabled]="previousDisabled"
           (click)="previousPage()">上一页</button>
   <input type="number"
          class="grid-footer-page"
@@ -46,6 +47,6 @@
          (input)="turnPage(options.query.currentPage)">
   <button type="button"
           class="grid-footer-button"
-          [disabled]="options.query.currentPage === data.totalPages"
+          [disabled]="nextDisabled"
           (click)="nextPage()">下一页</button>
 </footer>

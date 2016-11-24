@@ -2,7 +2,9 @@
 
 <p>{{signupForm.value | json}}</p>
 
-<form #signupForm="ngForm" novalidate (submit)="registerUser(signupForm)">
+<form #signupForm="ngForm"
+      novalidate
+      (submit)="registerUser(signupForm)">
   <div ngModelGroup="user">
     <div class="form-group">
       <label>Email: </label>

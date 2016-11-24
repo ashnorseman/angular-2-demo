@@ -45,12 +45,20 @@ export class GridComponent implements OnInit {
     this.turnPage(1);
   }
 
+  get nextDisabled() {
+    return this.options.query.currentPage === this.data.totalPages;
+  }
+
   nextPage() {
     this.turnPage(this.options.query.currentPage + 1);
   }
 
   onClickRow(row: any) {
     this.clickRow.emit({ row });
+  }
+
+  get previousDisabled() {
+    return this.options.query.currentPage === 1;
   }
 
   previousPage() {
