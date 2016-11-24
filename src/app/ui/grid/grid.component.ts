@@ -18,15 +18,14 @@ import { ScrollBarWidth } from '../utils/ScrollBarWidth';
   styleUrls: ['./grid.component.scss']
 })
 export class GridComponent implements OnInit {
-  @Input('options') options: GridOption = <GridOption>{};
-
-  @Output('onClickRow') onClickRow: EventEmitter<any> = new EventEmitter();
+  @Output() onClickRow: EventEmitter<any> = new EventEmitter();
+  @Input() options: GridOption = <GridOption>{};
 
   ScrollBarWidth: number = ScrollBarWidth;
 
-  data: Data = <Data>{};
-  private selectedRows: number[] = [];
   private currentPage = new Subject<number>();
+  private data: Data = <Data>{};
+  private selectedRows: number[] = [];
 
   constructor() { }
 
@@ -50,16 +49,13 @@ export class GridComponent implements OnInit {
     this.onClickRow.emit({ row });
   }
 
-
-  previousPage() {
-    this.turnPage(this.options.query.currentPage - 1);
-  }
-
-
   nextPage() {
     this.turnPage(this.options.query.currentPage + 1);
   }
 
+  previousPage() {
+    this.turnPage(this.options.query.currentPage - 1);
+  }
 
   /**
    * Fetch data from the server
@@ -76,7 +72,6 @@ export class GridComponent implements OnInit {
     }
   }
 
-
   /**
    * select / un-select a row
    * @param index
@@ -90,7 +85,6 @@ export class GridComponent implements OnInit {
       this.selectedRows.splice(findIndex, 1);
     }
   }
-
 
   /**
    * Go to a page

@@ -17,11 +17,11 @@ import { Column } from '../models/column.model';
   styleUrls: ['./grid-cell.component.scss']
 })
 export class GridCellComponent implements AfterViewInit, OnChanges, OnInit, OnDestroy {
-  @Input('column') column: Column = <Column>{};
-  @Input('data') data: any = {};
+  @Input() column: Column = <Column>{};
+  @Input() data: any = {};
 
-  private _initialized: boolean;
   private componentRef: ComponentRef<any>;
+  private initialized: boolean;
 
   constructor(
     private compiler: RuntimeCompiler,
@@ -32,12 +32,12 @@ export class GridCellComponent implements AfterViewInit, OnChanges, OnInit, OnDe
   }
 
   ngAfterViewInit() {
-    this._initialized = true;
+    this.initialized = true;
     this.refreshContent();
   }
 
   ngOnChanges() {
-    if (this._initialized) { return; }
+    if (this.initialized) { return; }
     this.refreshContent();
   }
 

@@ -18,21 +18,21 @@ import { Crud, Resource } from '../../services/resource-factory';
 export class HttpDemoComponent implements OnInit {
   httpResource: Crud;
 
+  deleteParam: string;
   getParam: string;
   postData: string;
   putData: string;
-  deleteParam: string;
 
   errorMessage: string;
+  deleteResponse: Observable<Object>;
   getResponse: Observable<Object>;
   postResponse: Observable<Object>;
   putResponse: Observable<Object>;
-  deleteResponse: Observable<Object>;
 
+  private deleteMethodStream = new Subject<string>();
   private getMethodStream = new Subject<string>();
   private postMethodStream = new Subject<string>();
   private putMethodStream = new Subject<string>();
-  private deleteMethodStream = new Subject<string>();
 
   constructor(
     private resource: Resource,
@@ -80,20 +80,12 @@ export class HttpDemoComponent implements OnInit {
     this.titleService.setTitle('Http Demo');
   }
 
-  getMethod() {
-    this.getMethodStream.next(this.getParam);
-  }
-
-  postMethod() {
-    this.postMethodStream.next(this.postData);
-  }
-
-  putMethod() {
-    this.putMethodStream.next(this.putData);
-  }
-
   deleteMethod() {
     this.deleteMethodStream.next(this.deleteParam);
+  }
+
+  getMethod() {
+    this.getMethodStream.next(this.getParam);
   }
 
   postError() {
@@ -102,5 +94,13 @@ export class HttpDemoComponent implements OnInit {
         () => {},
         (error) => this.errorMessage = error
       );
+  }
+
+  postMethod() {
+    this.postMethodStream.next(this.postData);
+  }
+
+  putMethod() {
+    this.putMethodStream.next(this.putData);
   }
 }

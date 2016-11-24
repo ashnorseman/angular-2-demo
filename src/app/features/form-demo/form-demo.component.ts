@@ -15,7 +15,14 @@ import { DropdownItem } from '../../ui/dropdown/dropdown-item-model';
   styleUrls: ['./form-demo.component.scss']
 })
 export class FormDemoComponent implements OnInit {
-  dropdownData: DropdownItem[];
+  dropdownData: DropdownItem[] = <DropdownItem[]>[{
+    text: 'Male',
+    value: 1
+  }, {
+    text: 'Female',
+    value: 2
+  }];
+
   timeControls: FormGroup;
 
   constructor(
@@ -25,14 +32,6 @@ export class FormDemoComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('Form Demo');
-
-    this.dropdownData = <DropdownItem[]>[{
-      text: 'Male',
-      value: 1
-    }, {
-      text: 'Female',
-      value: 2
-    }];
 
     this.timeControls = this.formBuilder.group({
       start: ['', Validators.required],

@@ -14,8 +14,8 @@ import { Crud, Resource } from '../../services/resource-factory';
   styleUrls: ['./data-binding-demo.component.scss']
 })
 export class DataBindingDemoComponent implements OnInit {
-  gridResource: Crud;
   gridOptions: any;
+  gridResource: Crud;
 
   constructor(
     private resource: Resource,

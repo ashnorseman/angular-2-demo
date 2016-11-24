@@ -4,7 +4,7 @@
 
 
 export class DropdownItem {
-  selected?: boolean = false;
+  selected?: boolean;
   text: string;
   value: any;
 }

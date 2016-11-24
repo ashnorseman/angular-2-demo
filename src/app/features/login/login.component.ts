@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   user: any = {};
 
   constructor(
-    private router: Router,
     private authenticationService: AuthenticationService,
+    private router: Router,
     private title: Title
   ) { }
 

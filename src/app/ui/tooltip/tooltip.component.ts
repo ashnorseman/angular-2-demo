@@ -11,7 +11,7 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
   styleUrls: ['./tooltip.component.scss']
 })
 export class TooltipComponent implements OnInit {
-  @Input('message') message: string;
+  @Input() message: string;
 
   @HostBinding('style.left') @Input('x') x: string = '0';
   @HostBinding('style.top') @Input('y') y: string = '0';

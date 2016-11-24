@@ -13,9 +13,9 @@ import { isChildNode } from '../utils/isChildNode';
 
 
 const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
+  multi: true,
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => DropdownComponent),
-  multi: true
+  useExisting: forwardRef(() => DropdownComponent)
 };
 
 
@@ -37,10 +37,10 @@ const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   ]
 })
 export class DropdownComponent implements ControlValueAccessor, OnInit {
-  @Input('data') data: DropdownItem[];
+  @Input() data: DropdownItem[];
 
-  selected: DropdownItem = <DropdownItem>{};
-  openState: string = 'closed';
+  private openState: string = 'closed';
+  private selected: DropdownItem = <DropdownItem>{};
 
   constructor(
     private elementRef: ElementRef
@@ -49,9 +49,36 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
   ngOnInit() {
   }
 
-  // Placeholders for the callbacks which are later provided by the Control Value Accessor
-  private onTouchedCallback: () => void = () => {};
-  private onChangeCallback: (_: any) => void = () => {};
+  /**
+   * Close the dropdown
+   */
+  close() {
+    this.openState = 'closed';
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChangeCallback = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouchedCallback = fn;
+  }
+
+  /**
+   * Select an item
+   * @param item
+   */
+  select(item: DropdownItem) {
+    this.value = item.value;
+    this.close();
+  }
+
+  /**
+   * Open / close
+   */
+  toggle() {
+    this.openState = (this.openState === 'opened') ? 'closed' : 'opened';
+  }
 
   get value(): any {
     return this.selected.value;
@@ -74,41 +101,6 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
     }
   }
 
-  registerOnChange(fn: any): void {
-    this.onChangeCallback = fn;
-  }
-
-  registerOnTouched(fn: any): void {
-    this.onTouchedCallback = fn;
-  }
-
-
-  /**
-   * Close the dropdown
-   */
-  close() {
-    this.openState = 'closed';
-  }
-
-
-  /**
-   * Select an item
-   * @param item
-   */
-  select(item: DropdownItem) {
-    this.value = item.value;
-    this.close();
-  }
-
-
-  /**
-   * Open / close
-   */
-  toggle() {
-    this.openState = (this.openState === 'opened') ? 'closed' : 'opened';
-  }
-
-
   /**
    * Click on the document to close the dropdown
    * @param $event
@@ -119,4 +111,8 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
 
     this.close();
   }
+
+  // Placeholders for the callbacks which are later provided by the Control Value Accessor
+  private onChangeCallback: (_: any) => void = () => {};
+  private onTouchedCallback: () => void = () => {};
 }

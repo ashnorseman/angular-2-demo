@@ -13,7 +13,7 @@ import { Tab } from './tab';
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements OnInit {
-  @Input('tabs') tabs: Tab[];
+  @Input() tabs: Tab[];
 
   constructor() { }
 

@@ -13,11 +13,9 @@ import { ScrollBarWidth } from '../utils/ScrollBarWidth';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
+  @Input() title: string;
 
-  @HostBinding('class.opened')
-  private opened: boolean = false;
-
-  @Input('title') title: string;
+  @HostBinding('class.opened') private opened: boolean = false;
 
   constructor() { }
 

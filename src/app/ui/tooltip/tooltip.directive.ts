@@ -11,15 +11,14 @@ import { TooltipComponent } from './tooltip.component';
   selector: '[phTooltip]'
 })
 export class TooltipDirective {
-  private tooltip: TooltipComponent;
+  @Input() phTooltip: string;
 
-  @Input('phTooltip') phTooltip: string;
+  private tooltip: TooltipComponent;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private viewContainerRef: ViewContainerRef
   ) { }
-
 
   /**
    * create and position the tooltip
@@ -37,7 +36,6 @@ export class TooltipDirective {
     this.tooltip.x = $event.pageX + 'px';
     this.tooltip.y = $event.pageY + 'px';
   }
-
 
   /**
    * Remove the tooltip

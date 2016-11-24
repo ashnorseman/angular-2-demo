@@ -15,21 +15,18 @@ export class Crud {
     'Content-Type': 'application/json'
   });
 
-  private _url: string;
+  private tempUrl: string;
 
   constructor(
     private url: string,
     private http: Http
   ) { }
 
-
   /**
-   * Query method: returns an object or array
    */
-  query(params?: any): Observable<any> {
-    return this.sendRequest('get', params);
+  delete(params: any): Observable<any> {
+    return this.sendRequest('delete', params);
   }
-
 
   /**
    * Create method
@@ -45,7 +42,6 @@ export class Crud {
     return this.sendRequest('post', params, data);
   }
 
-
   /**
    * Update method
    */
@@ -60,53 +56,12 @@ export class Crud {
     return this.sendRequest('put', params, data);
   }
 
-
   /**
+   * Query method: returns an object or array
    */
-  delete(params: any): Observable<any> {
-    return this.sendRequest('delete', params);
+  query(params?: any): Observable<any> {
+    return this.sendRequest('get', params);
   }
-
-
-  /**
-   * General method
-   * @param method
-   * @param params
-   * @param data
-   * @returns {Observable<any>}
-   */
-  private sendRequest(method: string, params?: any, data?: any): Observable<any> {
-    const options = this.createOptions(params);
-
-    if (method === 'get' || method === 'delete') {
-      return this.http[method](this.url, options)
-        .map(this.extractData)
-        .catch(this.handleError);
-    } else {
-      return this.http[method](this.url, data, options)
-        .map(this.extractData)
-        .catch(this.handleError);
-    }
-  }
-
-
-  /**
-   * Custom http requests
-   * @param action
-   * @param option
-   */
-  setAction(action: string, option: any) {
-    const method = this[option.method];
-
-    this[action] = function () {
-      this._url = this.url;
-      this.url = option.url;
-      const result = method.call(this, arguments);
-      this.url = this._url;
-      return result;
-    };
-  }
-
 
   /**
    * Create search params
@@ -131,7 +86,6 @@ export class Crud {
     };
   }
 
-
   /**
    * Extract data
    * @param res
@@ -141,7 +95,6 @@ export class Crud {
     return res.json();
   }
 
-
   /**
    * Handle http error: interceptors here
    * @param error
@@ -150,6 +103,44 @@ export class Crud {
   private handleError(error: Response | any) {
     alert(JSON.stringify(error));
     return Observable.throw(`${error.status} - ${error.statusText || ''}`);
+  }
+
+  /**
+   * General method
+   * @param method
+   * @param params
+   * @param data
+   * @returns {Observable<any>}
+   */
+  private sendRequest(method: string, params?: any, data?: any): Observable<any> {
+    const options = this.createOptions(params);
+
+    if (method === 'get' || method === 'delete') {
+      return this.http[method](this.url, options)
+        .map(this.extractData)
+        .catch(this.handleError);
+    } else {
+      return this.http[method](this.url, data, options)
+        .map(this.extractData)
+        .catch(this.handleError);
+    }
+  }
+
+  /**
+   * Custom http requests
+   * @param action
+   * @param option
+   */
+  setAction(action: string, option: any) {
+    const method = this[option.method];
+
+    this[action] = function () {
+      this._url = this.url;
+      this.url = option.url;
+      const result = method.call(this, arguments);
+      this.url = this.tempUrl;
+      return result;
+    };
   }
 }
 
