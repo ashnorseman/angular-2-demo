@@ -18,7 +18,7 @@ import { ScrollBarWidth } from '../utils/ScrollBarWidth';
   styleUrls: ['./grid.component.scss']
 })
 export class GridComponent implements OnInit {
-  @Output() onClickRow: EventEmitter<any> = new EventEmitter();
+  @Output() clickRow: EventEmitter<any> = new EventEmitter();
   @Input() options: GridOption = <GridOption>{};
 
   ScrollBarWidth: number = ScrollBarWidth;
@@ -45,12 +45,12 @@ export class GridComponent implements OnInit {
     this.turnPage(1);
   }
 
-  clickRow(row: any) {
-    this.onClickRow.emit({ row });
-  }
-
   nextPage() {
     this.turnPage(this.options.query.currentPage + 1);
+  }
+
+  onClickRow(row: any) {
+    this.clickRow.emit({ row });
   }
 
   previousPage() {

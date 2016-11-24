@@ -18,7 +18,7 @@
   <table>
     <tbody>
       <tr *ngFor="let row of data.list; let i = index;"
-          (click)="clickRow(row)">
+          (click)="onClickRow(row)">
         <td *ngIf="options.selectable"
             class="grid-select">
           <input type="checkbox"
