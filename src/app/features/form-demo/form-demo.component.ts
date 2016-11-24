@@ -27,10 +27,10 @@ export class FormDemoComponent implements OnInit {
     this.titleService.setTitle('Form Demo');
 
     this.dropdownData = <DropdownItem[]>[{
-      text: 'Item 1',
+      text: 'Male',
       value: 1
     }, {
-      text: 'Item 2 long long long',
+      text: 'Female',
       value: 2
     }];
 
