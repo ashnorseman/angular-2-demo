@@ -16,6 +16,10 @@ import { FormDemoComponent } from './form-demo/form-demo.component';
 import { HttpDemoComponent } from './http-demo/http-demo.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 
+import { AuthenticationService } from '../services/authentication.service';
+import { GuardService } from '../services/guard.service';
+import { Resource } from '../services/resource-factory';
+
 
 @NgModule({
   imports: [
@@ -33,6 +37,11 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
     FormDemoComponent,
     HttpDemoComponent,
     PipeDemoComponent
+  ],
+  providers: [
+    Resource,
+    AuthenticationService,
+    GuardService
   ]
 })
 export class FeaturesModule { }

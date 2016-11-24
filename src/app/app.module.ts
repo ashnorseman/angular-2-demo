@@ -8,13 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FeaturesModule } from './features/features.module';
-import { UIModule } from './ui/ui.module';
 
 import { AppComponent } from './app.component';
-
-import { AuthenticationService } from './services/authentication.service';
-import { GuardService } from './services/guard.service';
-import { Resource } from './services/resource-factory';
 
 
 @NgModule({
@@ -24,9 +19,6 @@ import { Resource } from './services/resource-factory';
     BrowserModule,  // for browser apps
     HttpModule,
 
-    // Common modules
-    UIModule,
-
     // Feature module
     FeaturesModule,
 
@@ -35,11 +27,6 @@ import { Resource } from './services/resource-factory';
   ],
   declarations: [
     AppComponent
-  ],
-  providers: [
-    Resource,
-    AuthenticationService,
-    GuardService
   ],
   bootstrap: [AppComponent]
 })
