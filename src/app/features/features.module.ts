@@ -26,10 +26,10 @@ import { Resource } from '../services/resource-factory';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    UIModule,
 
     HomeModule,
-    LoginModule
+    LoginModule,
+    UIModule
   ],
   declarations: [
     AnimationDemoComponent,
