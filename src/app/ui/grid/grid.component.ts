@@ -2,12 +2,13 @@
  * Grid
  */
 
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { Data } from './models/data.model';
 import { GridOption } from './models/grid-option.model';
 import { Query } from './models/query.model';
+
 import { ScrollBarWidth } from '../utils/ScrollBarWidth';
 
 

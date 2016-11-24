@@ -3,8 +3,8 @@
  */
 
 import {
-  Component, ComponentRef, NgModule, Input, ViewContainerRef,
-  OnInit, AfterViewInit, OnChanges, OnDestroy
+  Component, ComponentRef, Input, NgModule, ViewContainerRef,
+  AfterViewInit, OnChanges, OnDestroy, OnInit
 } from '@angular/core';
 import { RuntimeCompiler } from '@angular/compiler';
 

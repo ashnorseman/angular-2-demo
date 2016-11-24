@@ -2,7 +2,7 @@
  * Dialog
  */
 
-import { Component, Input, OnInit, HostBinding, HostListener } from '@angular/core';
+import { Component, HostBinding, HostListener, Input, OnInit } from '@angular/core';
 
 import { ScrollBarWidth } from '../utils/ScrollBarWidth';
 

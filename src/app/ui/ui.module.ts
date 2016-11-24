@@ -4,9 +4,9 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { COMPILER_PROVIDERS } from '@angular/compiler';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { COMPILER_PROVIDERS } from '@angular/compiler';
 
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { GridComponent } from './grid/grid.component';

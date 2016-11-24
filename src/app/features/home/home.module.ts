@@ -7,8 +7,8 @@ import { CommonModule } from '@angular/common';
 
 import { UIModule } from '../../ui/ui.module';
 
-import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
 
 
 @NgModule({

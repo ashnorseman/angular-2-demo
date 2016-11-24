@@ -3,15 +3,10 @@
  */
 
 import {
-  Component, ElementRef, HostListener, Input, OnInit,
-  forwardRef,
-  animate,
-  state,
-  style,
-  trigger,
-  transition,
+  Component, ElementRef, HostListener, Input, OnInit, forwardRef,
+  animate, state, style, trigger, transition,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { DropdownItem } from './dropdown-item-model';
 import { isChildNode } from '../utils/isChildNode';

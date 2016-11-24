@@ -4,11 +4,7 @@
 
 import {
   Component, OnInit,
-  animate,
-  state,
-  style,
-  trigger,
-  transition
+  animate, state, style, trigger, transition
 } from '@angular/core';
 
 

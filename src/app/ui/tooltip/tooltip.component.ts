@@ -2,7 +2,7 @@
  * Tooltip
  */
 
-import { Component, Input, OnInit, HostBinding } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
 
 @Component({
