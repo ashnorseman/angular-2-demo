@@ -123,6 +123,7 @@ tr:last-child > td {
   @include full-size;
 
   background: white;
+  display: flex;
   opacity: .5;
 }
 
