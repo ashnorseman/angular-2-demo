@@ -66,6 +66,18 @@
 
 /* ----- Modal end ----- */
 
+/* ----- Toggle ----- */
+
+@mixin toggle {
+  overflow: hidden;
+  position: relative;
+
+  &.opened {
+    overflow: visible;
+  }
+}
+
+/* ----- Toggle end ----- */
 
 @mixin ratio($w, $h) {
   position: relative;

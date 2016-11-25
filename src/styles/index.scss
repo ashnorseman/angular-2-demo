@@ -10,6 +10,13 @@
 @import "form";
 
 
+.pre-loading {
+  @include full-size();
+
+  text-align: center;
+  top: 40%;
+}
+
 body {
   font-size: 1rem;
   line-height: $line-height;

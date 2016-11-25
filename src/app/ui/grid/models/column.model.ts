@@ -4,7 +4,8 @@
 
 export class Column {
   align?: string;
-  name: string;
   field?: string;
   template?: string;
+  text: string;
+  [propName: string]: any
 }

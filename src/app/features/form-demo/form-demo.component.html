@@ -30,6 +30,12 @@
                    [data]="dropdownData"
                    ngModel></ph-dropdown>
     </div>
+
+    <div class="form-group">
+      <label>Date of Birth: </label>
+      <ph-date-picker name="dob"
+                      ngModel></ph-date-picker>
+    </div>
   </div>
 
   <button type="submit"
@@ -45,18 +51,16 @@
       [formGroup]="timeControls">
   <div class="form-group">
     <label>From: </label>
-    <input type="date"
-           name="start"
-           placeholder="start time"
-           formControlName="start">
+    <ph-date-picker name="start"
+                    placeholder="Pick start date"
+                    formControlName="start"></ph-date-picker>
   </div>
 
   <div class="form-group">
     <label>To: </label>
-    <input type="date"
-           name="end"
-           placeholder="end time"
-           formControlName="end">
+    <ph-date-picker name="end"
+                    placeholder="Pick end date"
+                    formControlName="end"></ph-date-picker>
   </div>
 
   <button type="submit"

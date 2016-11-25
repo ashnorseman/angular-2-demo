@@ -5,7 +5,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { GridOption } from '../../ui/grid';
+import { Column, GridOption } from '../../ui/grid';
 import { Crud, Resource } from '../../services/resource-factory';
 
 
@@ -32,7 +32,7 @@ export class DataBindingDemoComponent implements OnInit {
       selectable: true,
       resource: this.gridResource,
 
-      columns: [{
+      columns: <Column[]>[{
         text: 'Avatar',
         template: '<img class="data-grid-image" [src]="data.avatar">'
       }, {
@@ -47,8 +47,8 @@ export class DataBindingDemoComponent implements OnInit {
         align: 'right'
       }, {
         template: '<button type="button" (click)="column.edit(data); $event.stopPropagation();">Edit</button>',
-        edit: this.edit,
-        align: 'center'
+        align: 'center',
+        edit: this.edit
       }]
     };
   }

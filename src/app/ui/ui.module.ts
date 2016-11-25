@@ -4,6 +4,7 @@
 
 import { NgModule } from '@angular/core';
 
+import { DatePickerModule } from './date-picker';
 import { DialogModule } from './dialog';
 import { DropdownModule } from './dropdown';
 import { GridModule } from './grid';
@@ -12,6 +13,7 @@ import { ToolTipModule } from './tooltip';
 
 
 const modules = [
+  DatePickerModule,
   DialogModule,
   DropdownModule,
   GridModule,

@@ -1,0 +1,40 @@
+<input type="text"
+       [placeholder]="placeholder"
+       readonly
+       [value]="dateValue | date"
+       (click)="toggle()">
+
+<div class="date-picker"
+     [@openState]="openState">
+  <header class="date-picker-header">
+    <button type="button"
+            class="date-picker-prev"
+            (click)="switchMonth(-1)">«</button>
+
+    <ph-dropdown [data]="monthList"
+                 [(ngModel)]="currentMonth"
+                 (ngModelChange)="createDateRange(currentYear, currentMonth)"></ph-dropdown>
+
+    <ph-dropdown [data]="yearList"
+                 [(ngModel)]="currentYear"
+                 (ngModelChange)="createDateRange(currentYear, currentMonth)"></ph-dropdown>
+
+    <button type="button"
+            class="date-picker-next"
+            (click)="switchMonth(1)">»</button>
+  </header>
+
+  <ul class="date-picker-week-names">
+    <li *ngFor="let item of weekNames"
+        class="date-picker-week-item">{{item}}</li>
+  </ul>
+
+  <ul class="date-picker-days">
+    <li *ngFor="let date of dateRange"
+        class="date-picker-day-item"
+        [ngClass]="{ current: date.current, 'out-of-range': date.outOfRange }"
+        (click)="setValue(date.value)">
+      {{date.value.getDate()}}
+    </li>
+  </ul>
+</div>

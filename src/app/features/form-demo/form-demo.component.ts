@@ -23,6 +23,7 @@ export class FormDemoComponent implements OnInit {
     value: 2
   }];
 
+  testDate: Date = new Date();
   timeControls: FormGroup;
 
   constructor(
@@ -50,7 +51,7 @@ export class FormDemoComponent implements OnInit {
       let start = group.controls['start'].value;
       let end = group.controls['end'].value;
 
-      if (start && end && (start >= end)) {
+      if (start && end && (start > end)) {
         return {
           mismatchStartEnd: true
         };

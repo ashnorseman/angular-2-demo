@@ -1,0 +1,84 @@
+/**
+ * Date-picker
+ */
+
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+:host {
+  @include toggle;
+
+  display: inline-block;
+  vertical-align: middle;
+
+  input {
+    cursor: pointer;
+  }
+}
+
+.date-picker {
+  background: white;
+  border: 1px solid;
+  position: absolute;
+    z-index: $z-modal + 1;
+  width: 20em;
+
+  ph-dropdown {
+    width: 6em;
+  }
+
+  button {
+    border: 0;
+    padding: 0 .5em;
+  }
+}
+
+.date-picker-header {
+  @include clearfix;
+
+  border-bottom: 1px solid;
+  padding: .25em .5em;
+  text-align: center;
+}
+
+.date-picker-prev {
+  float: left;
+}
+
+.date-picker-next {
+  float: right;
+}
+
+.date-picker-week-names,
+.date-picker-days {
+  line-height: 2;
+  text-align: center;
+  overflow: hidden;
+}
+
+.date-picker-week-item,
+.date-picker-day-item {
+  float: left;
+  width: percentage(1 / 7);
+}
+
+.date-picker-days {
+  padding-bottom: .25em;
+}
+
+.date-picker-day-item {
+  cursor: pointer;
+
+  &:hover {
+    background: whitesmoke;
+  }
+
+  &.out-of-range {
+    color: darkgray;
+  }
+
+  &.current {
+    background: darkgray;
+    color: white;
+  }
+}

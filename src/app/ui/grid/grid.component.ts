@@ -21,6 +21,7 @@ export class GridComponent implements OnInit {
   @Output() clickRow: EventEmitter<any> = new EventEmitter();
   @Input() options: GridOption = <GridOption>{};
 
+  loading: boolean;
   scrollBarWidth: number = scrollBarWidth;
 
   private currentPage = new Subject<number>();
@@ -73,9 +74,13 @@ export class GridComponent implements OnInit {
     const method = this.options.method || 'query';
 
     if (resource && resource[method]) {
+      this.loading = true;
+
       resource[method](this.options.query)
         .subscribe(
-          (res) => this.data = res
+          (res) => this.data = res,
+          () => {},
+          () => this.loading = false
         );
     }
   }

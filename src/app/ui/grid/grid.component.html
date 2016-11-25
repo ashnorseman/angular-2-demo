@@ -15,6 +15,10 @@
 </div>
 
 <div class="grid-data">
+  <div *ngIf="loading" class="grid-loading">
+    <div class="grid-loading-text">Loading...</div>
+  </div>
+
   <table>
     <tbody>
       <tr *ngFor="let row of data.list; let i = index;"

@@ -79,6 +79,10 @@ tr:last-child > td {
   overflow-y: scroll;
 }
 
+
+// Footer
+// ---------------------------
+
 .grid-footer {
   align-items: center;
   border-top: 1px solid;
@@ -109,4 +113,19 @@ tr:last-child > td {
 
 .grid-footer-button {
   padding: 0 .5em;
+}
+
+
+// Loading
+// ---------------------------
+
+.grid-loading {
+  @include full-size;
+
+  background: white;
+  opacity: .5;
+}
+
+.grid-loading-text {
+  margin: auto;
 }

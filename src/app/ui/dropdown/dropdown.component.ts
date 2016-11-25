@@ -3,13 +3,14 @@
  */
 
 import {
-  Component, ElementRef, HostListener, Input, OnInit, forwardRef,
-  animate, state, style, trigger, transition,
+  Component, ElementRef, HostListener, Input, OnInit, Renderer ,forwardRef,
+  animate, state, style, trigger, transition
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { DropdownItem } from './dropdown-item.model';
+import { AbstractToggleComponent } from '../utils/AbstractToggleComponent';
 import { isChildNode } from '../utils/isChildNode';
+import { DropdownItem } from './dropdown-item.model';
 
 
 const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
@@ -27,33 +28,30 @@ const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   animations: [
     trigger('openState', [
       state('closed', style({
-        height: '0'
+        opacity: '0',
+        transform: 'translateY(-50%)',
+        zIndex: '-1'
       })),
       state('opened', style({
-        height: '*'
+        opacity: '1',
+        transform: 'translateY(0)'
       })),
       transition('closed <=> opened', animate('200ms ease-in-out'))
     ])
   ]
 })
-export class DropdownComponent implements ControlValueAccessor, OnInit {
+export class DropdownComponent extends AbstractToggleComponent implements ControlValueAccessor, OnInit {
   @Input() data: DropdownItem[];
 
   private openState: string = 'closed';
   private selected: DropdownItem = <DropdownItem>{};
 
   constructor(
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private renderer: Renderer
   ) { }
 
   ngOnInit() {
-  }
-
-  /**
-   * Close the dropdown
-   */
-  close() {
-    this.openState = 'closed';
   }
 
   registerOnChange(fn: any): void {
@@ -73,31 +71,22 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
     this.close();
   }
 
-  /**
-   * Open / close
-   */
-  toggle() {
-    this.openState = (this.openState === 'opened') ? 'closed' : 'opened';
-  }
-
   get value(): any {
     return this.selected.value;
   }
 
   set value(value: any) {
-    const item = this.data.find(item => item.value === value);
+    if (value === this.value) { return; }
 
-    if (item === this.selected) { return; }
-
-    this.selected = item || {};
+    this.writeValue(value);
     this.onChangeCallback(value);
   }
 
   writeValue(value: any) {
-    const item = this.data.find(item => item.value === value);
+    const item = this.data.find(i => i.value === value);
 
     if (item !== this.selected) {
-      this.selected = item || {};
+      this.selected = item || <DropdownItem>{};
     }
   }
 
