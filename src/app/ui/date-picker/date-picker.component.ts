@@ -72,8 +72,6 @@ export class DatePickerComponent extends AbstractToggleComponent implements Cont
   private weekNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   private yearList: DropdownItem[] = <DropdownItem[]>yearList;
 
-  private openState: string = 'closed';
-
   get value(): Date {
     return this.dateValue;
   }
@@ -86,9 +84,11 @@ export class DatePickerComponent extends AbstractToggleComponent implements Cont
   }
 
   constructor(
-    private elementRef: ElementRef,
-    private renderer: Renderer
-  ) { }
+    elementRef: ElementRef,
+    renderer: Renderer
+  ) {
+    super(elementRef, renderer);
+  }
 
   ngOnInit() {
   }

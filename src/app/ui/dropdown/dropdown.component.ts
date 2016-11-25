@@ -43,13 +43,14 @@ const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 export class DropdownComponent extends AbstractToggleComponent implements ControlValueAccessor, OnInit {
   @Input() data: DropdownItem[];
 
-  private openState: string = 'closed';
   private selected: DropdownItem = <DropdownItem>{};
 
   constructor(
-    private elementRef: ElementRef,
-    private renderer: Renderer
-  ) { }
+    elementRef: ElementRef,
+    renderer: Renderer
+  ) {
+    super(elementRef, renderer);
+  }
 
   ngOnInit() {
   }

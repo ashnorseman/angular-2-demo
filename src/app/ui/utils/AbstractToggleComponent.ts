@@ -6,9 +6,12 @@ import { ElementRef, Renderer } from '@angular/core';
 
 
 export abstract class AbstractToggleComponent {
-  protected elementRef: ElementRef;
-  protected renderer: Renderer;
   protected openState = 'closed';
+
+  constructor(
+    protected elementRef: ElementRef,
+    protected renderer: Renderer
+  ) { }
 
   close() {
     this.openState = 'closed';

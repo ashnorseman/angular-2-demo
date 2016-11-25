@@ -30,6 +30,7 @@ chokidar.on('ready', () => {
 const app = express();
 
 app.use(express.static('dist'));
+app.use(express.static('static'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
