@@ -9,7 +9,7 @@ import { Data } from './models/data.model';
 import { GridOption } from './models/grid-option.model';
 import { Query } from './models/query.model';
 
-import { ScrollBarWidth } from '../utils/ScrollBarWidth';
+import { scrollBarWidth } from '../constants';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class GridComponent implements OnInit {
   @Output() clickRow: EventEmitter<any> = new EventEmitter();
   @Input() options: GridOption = <GridOption>{};
 
-  ScrollBarWidth: number = ScrollBarWidth;
+  scrollBarWidth: number = scrollBarWidth;
 
   private currentPage = new Subject<number>();
   private data: Data = <Data>{};

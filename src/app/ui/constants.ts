@@ -1,9 +1,14 @@
 /**
- * calculate the scroll bar width of the browser (if any)
+ * UI constants
  */
 
 
-export const ScrollBarWidth = (function () {
+// the class name added to body when a modal is opened
+export const maskedClassName = 'modal-masked';
+
+
+// calculated scroll bar width of the browser (if any)
+export const scrollBarWidth = (function () {
   document.body.style.overflow = 'hidden';
 
   let width = document.body.clientWidth;

@@ -2,9 +2,9 @@
  * Dialog
  */
 
-import { Component, HostBinding, HostListener, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, HostListener, Input, OnInit, Renderer } from '@angular/core';
 
-import { ScrollBarWidth } from '../utils/ScrollBarWidth';
+import { maskedClassName, scrollBarWidth } from '../constants';
 
 
 @Component({
@@ -17,36 +17,38 @@ export class DialogComponent implements OnInit {
 
   @HostBinding('class.opened') private opened: boolean = false;
 
-  constructor() { }
+  constructor(
+    private renderer: Renderer
+  ) { }
 
   ngOnInit() {
   }
 
   // close the dialog
-  close(): void {
+  close() {
     this.opened = false;
-    document.body.classList.remove('modal-masked');
-    document.body.style.borderRight = '';
+    this.renderer.setElementClass(document.body, maskedClassName, false);
+    this.renderer.setElementStyle(document.body, 'border-right', '');
   }
 
   // open the dialog
-  open(): void {
+  open() {
     this.opened = true;
 
     const overflow = document.body.clientHeight > window.innerHeight;
 
-    document.body.classList.add('modal-masked');
+    this.renderer.setElementClass(document.body, maskedClassName, true);
 
     // prevent scrolling when modal is opened
     // add a transparent border to prevent content shifting when overflow property changes
     if (overflow) {
-      document.body.style.borderRight = `${ScrollBarWidth}px solid transparent`;
+      this.renderer.setElementStyle(document.body, 'border-right', `${scrollBarWidth}px solid transparent`);
     }
   }
 
   // click on the body mask to close the dialog
   @HostListener('document:click', ['$event'])
-  private onDocumentClick($event: MouseEvent): void {
+  private onDocumentClick($event: MouseEvent) {
     if (!this.opened || $event.target !== document.body) { return; }
 
     this.close();

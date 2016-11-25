@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
-import { DropdownItem } from '../../ui/dropdown/dropdown-item-model';
+import { DropdownItem } from '../../ui/dropdown';
 
 
 @Component({

@@ -8,9 +8,11 @@ import { TooltipComponent } from './tooltip.component';
 
 
 @Directive({
-  selector: '[phTooltip]'
+  selector: '[phTooltip]',
 })
 export class TooltipDirective {
+  static delta = 5;
+
   @Input() phTooltip: string;
 
   private tooltip: TooltipComponent;
@@ -33,7 +35,7 @@ export class TooltipDirective {
     this.tooltip = this.viewContainerRef.createComponent(toolTipFactory, 0).instance;
 
     this.tooltip.message = this.phTooltip;
-    this.tooltip.x = $event.pageX + 'px';
+    this.tooltip.x = $event.pageX + TooltipDirective.delta + 'px';
     this.tooltip.y = $event.pageY + 'px';
   }
 

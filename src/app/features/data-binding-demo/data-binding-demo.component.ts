@@ -5,6 +5,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
+import { GridOption } from '../../ui/grid';
 import { Crud, Resource } from '../../services/resource-factory';
 
 
@@ -14,7 +15,7 @@ import { Crud, Resource } from '../../services/resource-factory';
   styleUrls: ['./data-binding-demo.component.scss']
 })
 export class DataBindingDemoComponent implements OnInit {
-  gridOptions: any;
+  gridOptions: GridOption;
   gridResource: Crud;
 
   constructor(
@@ -27,7 +28,7 @@ export class DataBindingDemoComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Data-binding Demo');
 
-    this.gridOptions = {
+    this.gridOptions = <GridOption>{
       selectable: true,
       resource: this.gridResource,
 

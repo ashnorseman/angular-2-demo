@@ -4,7 +4,7 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { Tab } from '../../ui/tabs/tab';
+import { Tab } from '../../ui/tabs/tab.model';
 
 
 @Component({
@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit {
     router: 'animation-demo',
     text: 'Animation'
   }];
+
+  toolTipDemo: string = 'Tooltip demo';
 
   constructor() { }
 

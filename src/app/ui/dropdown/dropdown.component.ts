@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { DropdownItem } from './dropdown-item-model';
+import { DropdownItem } from './dropdown-item.model';
 import { isChildNode } from '../utils/isChildNode';
 
 
@@ -93,7 +93,7 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
     this.onChangeCallback(value);
   }
 
-  writeValue(value: any): void {
+  writeValue(value: any) {
     const item = this.data.find(item => item.value === value);
 
     if (item !== this.selected) {

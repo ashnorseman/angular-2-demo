@@ -4,7 +4,7 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Tab } from './tab';
+import { Tab } from './tab.model';
 
 
 @Component({
