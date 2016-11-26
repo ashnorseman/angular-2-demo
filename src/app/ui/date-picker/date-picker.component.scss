@@ -14,6 +14,10 @@
   input {
     cursor: pointer;
   }
+
+  &.ng-invalid.ng-dirty > input {
+    border-color: $color-invalid;
+  }
 }
 
 .date-picker {

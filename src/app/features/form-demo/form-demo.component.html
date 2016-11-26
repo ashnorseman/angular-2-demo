@@ -14,8 +14,11 @@
              maxlength="50"
              minlength="2"
              required
+             #controlName="ngModel"
              ngModel>
       (required & maxlength & minlength)
+
+      <span *ngIf="controlName.invalid && controlName.touched">Error: 2–50 characters</span>
     </div>
 
     <div class="form-group">
@@ -23,9 +26,11 @@
       <input type="number"
              name="age"
              placeholder="Age"
+             phMax="150"
+             phMin="0"
              required
              ngModel>
-      (Angular does not support max & min validators.)
+      (custom max & min validator)
     </div>
 
     <div class="form-group">
@@ -82,8 +87,10 @@
     <div class="form-group">
       <label>Date of Birth: </label>
       <ph-date-picker name="dob"
+                      [phMax]="now"
+                      [phMin]="minDob"
                       ngModel></ph-date-picker>
-      (custom date picker)
+      (custom date picker, with max & min validators)
     </div>
 
     <div class="form-group">
@@ -99,8 +106,8 @@
     <div class="form-group">
       <label>Interests: </label>
 
-      <ph-check-list [data]="interests"
-                     name="interests"
+      <ph-check-list name="interests"
+                     [data]="interests"
                      ngModel></ph-check-list>
 
       (checkbox list)

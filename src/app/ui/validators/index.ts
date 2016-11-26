@@ -7,6 +7,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { EmailDirective } from './email.directive';
+import { MaxDirective } from './max.directive';
+import { MinDirective } from './min.directive';
 
 
 @NgModule({
@@ -14,11 +16,14 @@ import { EmailDirective } from './email.directive';
     CommonModule
   ],
   exports: [
-    EmailDirective
+    EmailDirective,
+    MaxDirective,
+    MinDirective
   ],
   declarations: [
-    EmailDirective
+    EmailDirective,
+    MaxDirective,
+    MinDirective
   ]
 })
 export class ValidatorModule { }
-

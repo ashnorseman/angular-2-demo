@@ -16,6 +16,7 @@ import { CheckboxItem } from '../../ui/check-list';
   styleUrls: ['./form-demo.component.scss']
 })
 export class FormDemoComponent implements OnInit {
+
   dropdownData: DropdownItem[] = <DropdownItem[]>[{
     text: 'Male',
     value: 1
@@ -32,7 +33,8 @@ export class FormDemoComponent implements OnInit {
     value: 'music'
   }];
 
-  testDate: Date = new Date();
+  minDob: number = new Date(new Date().setDate(1)).setHours(0, 0, 0, 0);
+  now: Date = new Date();
   timeControls: FormGroup;
 
   constructor(
