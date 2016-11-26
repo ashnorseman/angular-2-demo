@@ -11,6 +11,7 @@ import { DropdownModule } from './dropdown';
 import { GridModule } from './grid';
 import { TabModule } from './tabs';
 import { ToolTipModule } from './tooltip';
+import { ValidatorModule } from './validators';
 
 
 const modules = [
@@ -20,7 +21,8 @@ const modules = [
   DropdownModule,
   GridModule,
   TabModule,
-  ToolTipModule
+  ToolTipModule,
+  ValidatorModule
 ];
 
 @NgModule({
