@@ -5,18 +5,15 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Crud, Resource } from './resource-factory';
+import { LoginResources } from './resources/login.resource';
 
 
 @Injectable()
 export class AuthenticationService {
-  private loginResource: Crud;
 
   constructor(
-    private resource: Resource
-  ) {
-    this.loginResource = this.resource.create('/api/authenticate');
-  }
+    private loginResource: LoginResources
+  ) { }
 
   login(username: string, password: string): Observable<void> {
 

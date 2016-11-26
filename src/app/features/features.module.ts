@@ -17,8 +17,9 @@ import { HttpDemoComponent } from './http-demo/http-demo.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 
 import { AuthenticationService } from '../services/authentication.service';
+import { LoginResources } from '../services/resources/login.resource';
 import { GuardService } from '../services/guard.service';
-import { Resource } from '../services/resource-factory';
+import { Resource } from '../services/resource';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { Resource } from '../services/resource-factory';
   providers: [
     Resource,
     AuthenticationService,
-    GuardService
+    GuardService,
+    LoginResources
   ]
 })
 export class FeaturesModule { }

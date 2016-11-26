@@ -39,5 +39,5 @@ app.use('/api', (req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log('Listening at: http://localhost:' + PORT);
+  console.log('Listening at: resources://localhost:' + PORT);
 });

@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     router: 'form-demo',
     text: 'Form'
   }, {
-    router: 'http-demo',
+    router: 'resources-demo',
     text: 'Http'
   }, {
     router: 'pipe-demo',

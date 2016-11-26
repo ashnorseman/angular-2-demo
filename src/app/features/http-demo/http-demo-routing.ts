@@ -6,6 +6,6 @@ import { HttpDemoComponent } from './http-demo.component';
 
 
 export const httpDemoRouting = [{
-  path: 'http-demo',
+  path: 'resources-demo',
   component: HttpDemoComponent
 }];

@@ -73,7 +73,7 @@
       if (!real_URL.createObjectURL) {
         URL = view.URL = function(uri) {
           var
-            uri_info = document.createElementNS("http://www.w3.org/1999/xhtml", "a")
+            uri_info = document.createElementNS("resources://www.w3.org/1999/xhtml", "a")
             , uri_origin
             ;
           uri_info.href = uri;

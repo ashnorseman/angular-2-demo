@@ -10,15 +10,16 @@ import { Observable } from 'rxjs/Observable';
 /**
  * Crud
  */
-export class Crud {
+@Injectable()
+export class Resource {
   private headers: Headers = new Headers({
     'Content-Type': 'application/json'
   });
 
-  private tempUrl: string;
+  protected tempUrl: string;
+  protected url: string;
 
   constructor(
-    private url: string,
     private http: Http
   ) { }
 
@@ -96,7 +97,7 @@ export class Crud {
   }
 
   /**
-   * Handle http error: interceptors here
+   * Handle resources error: interceptors here
    * @param error
    * @returns {any}
    */
@@ -127,43 +128,29 @@ export class Crud {
   }
 
   /**
-   * Custom http requests
+   * Custom resources requests
    * @param action
    * @param option
    */
-  setAction(action: string, option: any) {
+  private setAction(action: string, option: any) {
     const method = this[option.method];
 
     this[action] = function () {
-      this._url = this.url;
+      this.tempUrl = this.url;
       this.url = option.url;
       const result = method.call(this, arguments);
       this.url = this.tempUrl;
       return result;
     };
   }
-}
 
-
-/**
- * Resource class
- */
-@Injectable()
-export class Resource {
-
-  constructor(
-    private http: Http
-  ) { }
-
-  create(url: string, options?) {
-    const crud = new Crud(url, this.http);
-
-    if (options) {
-      for (let action of Object.keys(options)) {
-        crud.setAction(action, options[action]);
-      }
+  /**
+   * Set all options
+   * @param options
+   */
+  protected setAllActions(options: any) {
+    for (let action of Object.keys(options)) {
+      this.setAction(action, options[action]);
     }
-
-    return crud;
   }
 }

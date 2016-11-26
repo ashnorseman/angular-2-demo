@@ -7,17 +7,16 @@ import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { Crud, Resource } from '../../services/resource-factory';
+import { HttpTestResources } from '../../services/resources/http-test.resource';
 
 
 @Component({
   selector: 'ph-http-demo',
   templateUrl: './http-demo.component.html',
-  styleUrls: ['./http-demo.component.scss']
+  styleUrls: ['./http-demo.component.scss'],
+  providers: [HttpTestResources]
 })
 export class HttpDemoComponent implements OnInit {
-  httpResource: Crud;
-
   deleteParam: string;
   getParam: string;
   postData: string;
@@ -35,15 +34,9 @@ export class HttpDemoComponent implements OnInit {
   private putMethodStream = new Subject<string>();
 
   constructor(
-    private resource: Resource,
-    private titleService: Title
+    private titleService: Title,
+    private httpResource: HttpTestResources
   ) {
-    this.httpResource = this.resource.create('/api/test', {
-      postError: {
-        url: '/api/test/error',
-        method: 'post'
-      }
-    });
 
     // debounce user input
 

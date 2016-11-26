@@ -5,13 +5,13 @@
 import { Column } from './column.model';
 import { Query } from './query.model';
 
-import { Crud } from '../../../services/resource-factory';
+import { Resource } from '../../../services/resource';
 
 
 export class GridOption {
   columns: Column[] = [];
 
-  resource?: Crud;
+  resource?: Resource;
   method?: string = 'query';
   query?: Query = <Query>{};
 

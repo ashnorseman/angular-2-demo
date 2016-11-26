@@ -9,7 +9,7 @@ const fs = require('fs');
 const os = require('os');
 
 const mockPort = 4300;
-const realBackendHost = 'http://www.google.com';
+const realBackendHost = 'resources://www.google.com';
 
 
 if (process.env.BACKEND) {

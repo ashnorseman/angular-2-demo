@@ -6,24 +6,22 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { Column, GridOption } from '../../ui/grid';
-import { Crud, Resource } from '../../services/resource-factory';
+import { GridResources } from '../../services/resources/grid.resource';
 
 
 @Component({
   selector: 'ph-data-binding-demo',
   templateUrl: './data-binding-demo.component.html',
-  styleUrls: ['./data-binding-demo.component.scss']
+  styleUrls: ['./data-binding-demo.component.scss'],
+  providers: [GridResources]
 })
 export class DataBindingDemoComponent implements OnInit {
   gridOptions: GridOption;
-  gridResource: Crud;
 
   constructor(
-    private resource: Resource,
-    private titleService: Title
-  ) {
-    this.gridResource = this.resource.create('/api/grid-resources');
-  }
+    private titleService: Title,
+    private gridResource: GridResources
+  ) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('Data-binding Demo');
