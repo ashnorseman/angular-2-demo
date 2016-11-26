@@ -18,12 +18,10 @@
 }
 
 body {
+  @include modal-mask;
+
   font-size: 1rem;
   line-height: $line-height;
-
-  &.modal-masked {
-    @include modal-mask;
-  }
 }
 
 h2 {

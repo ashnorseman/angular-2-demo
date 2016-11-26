@@ -50,14 +50,14 @@ const yearList = (function () {
     trigger('openState', [
       state('closed', style({
         opacity: '0',
-        transform: 'translateY(-50%)',
+        transform: 'translateY(-20%)',
         zIndex: '-1'
       })),
       state('opened', style({
         opacity: '1',
         transform: 'translateY(0)'
       })),
-      transition('closed <=> opened', animate('200ms ease-in-out'))
+      transition('closed <=> opened', animate('300ms linear'))
     ])
   ]
 })

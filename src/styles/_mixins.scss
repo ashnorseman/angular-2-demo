@@ -41,7 +41,7 @@
     top: 50%;
     left: 50%;
     z-index: -1;
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, -30%);
   transition: all $duration $timing;
 }
 
@@ -52,15 +52,24 @@
 }
 
 @mixin modal-mask {
-  height: 100%;
-  overflow: hidden;
 
   &::before {
     @include full-size(fixed);
 
-    background: rgba(0, 0, 0, .3);
+    background: transparent;
     content: '';
-    z-index: $z-modal - 1;
+    transition: all $duration-long $timing;
+    z-index: -1;
+  }
+
+  &.modal-masked {
+    height: 100%;
+    overflow: hidden;
+
+    &::before {
+      background: rgba(0, 0, 0, .7);
+      z-index: $z-modal - 1;
+    }
   }
 }
 
