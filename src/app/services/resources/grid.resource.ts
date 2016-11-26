@@ -5,7 +5,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { Resource } from '../resource';
+import { Resource } from './resource';
 
 
 @Injectable()

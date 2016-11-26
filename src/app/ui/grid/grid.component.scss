@@ -39,12 +39,12 @@ td {
   }
 }
 
-tr:first-child > th {
-  border-top: 0;
-}
+tr:first-child {
 
-tr:last-child > td {
-  border-bottom: 0;
+  > th,
+  > td {
+    border-top: 0;
+  }
 }
 
 .grid-select {
@@ -86,6 +86,7 @@ tr:last-child > td {
 .grid-footer {
   align-items: center;
   border-top: 1px solid;
+  box-sizing: content-box;
   display: flex;
   height: 2em;
   justify-content: flex-end;

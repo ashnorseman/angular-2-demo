@@ -16,10 +16,10 @@ import { FormDemoComponent } from './form-demo/form-demo.component';
 import { HttpDemoComponent } from './http-demo/http-demo.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 
+import { Resource } from '../services/resources/resource';
 import { AuthenticationService } from '../services/authentication.service';
 import { LoginResources } from '../services/resources/login.resource';
 import { GuardService } from '../services/guard.service';
-import { Resource } from '../services/resource';
 
 
 @NgModule({
