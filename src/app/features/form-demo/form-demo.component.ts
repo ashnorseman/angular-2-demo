@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
 import { DropdownItem } from '../../ui/dropdown';
+import { CheckboxItem } from '../../ui/check-list';
 
 
 @Component({
@@ -21,6 +22,14 @@ export class FormDemoComponent implements OnInit {
   }, {
     text: 'Female',
     value: 2
+  }];
+
+  interests: CheckboxItem[] = <CheckboxItem[]>[{
+    text: 'Art',
+    value: 'art'
+  }, {
+    text: 'Music',
+    value: 'music'
   }];
 
   testDate: Date = new Date();

@@ -9,6 +9,8 @@ input[type=text],
 input[type=number],
 input[type=date],
 input[type=email],
+input[type=tel],
+input[type=url],
 input[type=password],
 button {
   background: white;
@@ -16,14 +18,21 @@ button {
   height: $form-control-height;
   padding: 0 .25em;
   vertical-align: middle;
+  width: $form-control-width;
 
   &:focus {
     background: whitesmoke;
   }
 }
 
+input[type="radio"],
+input[type="checkbox"] {
+  vertical-align: .15em;
+}
+
 button {
   padding: 0 1em;
+  width: auto;
 
   &:active {
     background: gainsboro;
@@ -34,7 +43,7 @@ button {
 // Invalid
 // ---------------------------
 
-.ng-dirty.ng-invalid {
+.ng-touched.ng-dirty.ng-invalid {
   border-color: $color-invalid;
 
   &:focus {

@@ -19,6 +19,7 @@
 .date-picker {
   background: white;
   border: 1px solid;
+  margin-top: -1px;
   position: absolute;
     z-index: $z-modal + 1;
   width: 20em;

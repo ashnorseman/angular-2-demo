@@ -41,7 +41,7 @@ const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   ]
 })
 export class DropdownComponent extends AbstractToggleComponent implements ControlValueAccessor, OnInit {
-  @Input() data: DropdownItem[];
+  @Input() data: DropdownItem[] = <DropdownItem[]>[];
 
   private selected: DropdownItem = <DropdownItem>{};
 
@@ -55,11 +55,11 @@ export class DropdownComponent extends AbstractToggleComponent implements Contro
   ngOnInit() {
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: any) {
     this.onChangeCallback = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: any) {
     this.onTouchedCallback = fn;
   }
 

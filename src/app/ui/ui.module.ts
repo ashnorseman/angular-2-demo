@@ -4,6 +4,7 @@
 
 import { NgModule } from '@angular/core';
 
+import { CheckListModule } from './check-list';
 import { DatePickerModule } from './date-picker';
 import { DialogModule } from './dialog';
 import { DropdownModule } from './dropdown';
@@ -13,6 +14,7 @@ import { ToolTipModule } from './tooltip';
 
 
 const modules = [
+  CheckListModule,
   DatePickerModule,
   DialogModule,
   DropdownModule,

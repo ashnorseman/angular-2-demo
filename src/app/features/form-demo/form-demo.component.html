@@ -7,19 +7,65 @@
       (submit)="registerUser(signupForm)">
   <div ngModelGroup="user">
     <div class="form-group">
-      <label>Email: </label>
-      <input type="email"
-             name="email"
-             placeholder="email"
+      <label>Name (text): </label>
+      <input type="text"
+             name="name"
+             placeholder="Name"
+             maxlength="50"
+             minlength="2"
              required
-             ngModel="corvine@qq.com">
+             ngModel>
+      (required & maxlength & minlength)
     </div>
 
     <div class="form-group">
-      <label>Password: </label>
+      <label>Age (number): </label>
+      <input type="number"
+             name="age"
+             placeholder="Age"
+             required
+             ngModel>
+      (Angular does not support max & min validators.)
+    </div>
+
+    <div class="form-group">
+      <label>Email (email): </label>
+      <input type="email"
+             name="email"
+             placeholder="Email"
+             maxlength="50"
+             required
+             ngModel="corvine@qq.com">
+      (Angular does not support the email validator.)
+    </div>
+
+    <div class="form-group">
+      <label>Mobile (tel): </label>
+      <input type="tel"
+             name="mobile"
+             placeholder="Mobile"
+             maxlength="11"
+             minlength="11"
+             required
+             ngModel>
+    </div>
+
+    <div class="form-group">
+      <label>Home Page (url): </label>
+      <input type="url"
+             name="homepage"
+             placeholder="Home Page"
+             pattern="^https?://"
+             required
+             ngModel>
+      (pattern: start with 'http://')
+    </div>
+
+    <div class="form-group">
+      <label>Password (password): </label>
       <input type="password"
              name="password"
-             placeholder="password"
+             placeholder="Password"
              required
              ngModel>
     </div>
@@ -29,12 +75,54 @@
       <ph-dropdown name="gender"
                    [data]="dropdownData"
                    ngModel></ph-dropdown>
+      (custom dropdown component)
     </div>
 
     <div class="form-group">
       <label>Date of Birth: </label>
       <ph-date-picker name="dob"
                       ngModel></ph-date-picker>
+      (custom date picker)
+    </div>
+
+    <div class="form-group">
+      <label>Active: </label>
+
+      <input type="checkbox"
+             name="active"
+             ngModel>
+
+      (checkbox: boolean)
+    </div>
+
+    <div class="form-group">
+      <label>Interests: </label>
+
+      <ph-check-list [data]="interests"
+                     name="interests"
+                     ngModel></ph-check-list>
+
+      (checkbox list)
+    </div>
+
+    <div class="form-group">
+      <label>Receive message: </label>
+
+      <label>
+        <input type="radio"
+               name="receive"
+               [value]="true"
+               ngModel> Yes
+      </label>
+
+      <label>
+        <input type="radio"
+               name="receive"
+               [value]="false"
+               ngModel> No
+      </label>
+
+      (true / false)
     </div>
   </div>
 

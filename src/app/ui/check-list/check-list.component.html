@@ -1,0 +1,7 @@
+<label *ngFor="let item of data">
+  <input type="checkbox"
+         [value]="item.value"
+         (change)="toggle(item.value)">
+
+  {{item.text}}
+</label>
