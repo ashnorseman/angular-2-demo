@@ -11,9 +11,7 @@ import { Resource } from '../resource';
 @Injectable()
 export class HttpTestResources extends Resource {
 
-  constructor(
-    http: Http
-  ) {
+  constructor(http: Http) {
     super(http);
 
     this.url = '/api/test';

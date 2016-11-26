@@ -9,32 +9,32 @@ module.exports = function (app) {
       totalItems: 100,
       totalPages: 4,
       list: [{
-        avatar: 'resources://localhost:4300/demo-pic-1.jpg',
+        avatar: 'http://localhost:4300/demo-pic-1.jpg',
         name: 'Ash Lee',
         dob: '1982-09-11',
         height: 175
       }, {
-        avatar: 'resources://localhost:4300/demo-pic-2.jpg',
+        avatar: 'http://localhost:4300/demo-pic-2.jpg',
         name: 'Jari Mäenpää',
         dob: '1977-12-23',
         height: 184
       }, {
-        avatar: 'resources://localhost:4300/demo-pic-1.jpg',
+        avatar: 'http://localhost:4300/demo-pic-1.jpg',
         name: 'Ash Lee',
         dob: '1982-09-11',
         height: 175
       }, {
-        avatar: 'resources://localhost:4300/demo-pic-2.jpg',
+        avatar: 'http://localhost:4300/demo-pic-2.jpg',
         name: 'Jari Mäenpää',
         dob: '1977-12-23',
         height: 184
       }, {
-        avatar: 'resources://localhost:4300/demo-pic-1.jpg',
+        avatar: 'http://localhost:4300/demo-pic-1.jpg',
         name: 'Ash Lee',
         dob: '1982-09-11',
         height: 175
       }, {
-        avatar: 'resources://localhost:4300/demo-pic-2.jpg',
+        avatar: 'http://localhost:4300/demo-pic-2.jpg',
         name: 'Jari Mäenpää',
         dob: '1977-12-23',
         height: 184
