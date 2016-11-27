@@ -1,8 +1,11 @@
 <input type="text"
+       class="date-picker-input"
        [placeholder]="placeholder"
        readonly
        [value]="dateValue | date"
        (click)="toggle()">
+
+<i class="date-picker-calendar iconfont icon-calendar"></i>
 
 <div class="date-picker"
      [@openState]="openState">
@@ -32,7 +35,7 @@
   <ul class="date-picker-days">
     <li *ngFor="let date of dateRange"
         class="date-picker-day-item"
-        [ngClass]="{ current: date.current, 'out-of-range': date.outOfRange }"
+        [ngClass]="{ current: date.current, today: date.isToday, 'out-of-range': date.outOfRange }"
         (click)="setValue(date.value)">
       {{date.value.getDate()}}
     </li>

@@ -11,13 +11,22 @@
   display: inline-block;
   vertical-align: middle;
 
-  input {
-    cursor: pointer;
-  }
-
-  &.ng-invalid.ng-dirty > input {
+  &.ng-invalid.ng-dirty > .date-picker-input {
     border-color: $color-invalid;
   }
+}
+
+.date-picker-input {
+  cursor: pointer;
+  padding-right: $form-control-height;
+}
+
+.date-picker-calendar {
+  @include square($form-control-height);
+
+  position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .date-picker {
@@ -76,6 +85,10 @@
 
   &:hover {
     background: whitesmoke;
+  }
+
+  &.today {
+    font-weight: 700;
   }
 
   &.out-of-range {

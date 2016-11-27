@@ -71,6 +71,7 @@ export class DatePickerComponent extends AbstractToggleComponent implements Cont
   private monthList: DropdownItem[] = <DropdownItem[]>monthList;
   private weekNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   private yearList: DropdownItem[] = <DropdownItem[]>yearList;
+  private today = new Date().setHours(0, 0, 0, 0);
 
   get value(): Date {
     return this.dateValue;
@@ -96,19 +97,22 @@ export class DatePickerComponent extends AbstractToggleComponent implements Cont
   // create the date range using current date
   createDateRange(year: number, month: number) {
     const monthStart: number = +new Date(year, month, 1).valueOf();
-    let showDate = new Date(monthStart - 1000 * 60 * 60 * 24 * new Date(monthStart).getDay());
+    let showDate: number = monthStart - 1000 * 60 * 60 * 24 * new Date(monthStart).getDay();
     let i = 0;
 
     const range = [];
 
     while (i++ < 42) {
+      const date = new Date(showDate);
+
       range.push({
-        current: this.dateValue && (showDate.valueOf() === this.dateValue.valueOf()),
-        outOfRange: showDate.getMonth() !== month,
-        value: showDate
+        current: this.dateValue && (showDate === this.dateValue.valueOf()),
+        outOfRange: date.getMonth() !== month,
+        isToday: showDate === this.today,
+        value: date
       });
 
-      showDate = new Date(showDate.valueOf() + 1000 * 60 * 60 * 24);
+      showDate = showDate + 1000 * 60 * 60 * 24;
     }
 
     this.dateRange = range;

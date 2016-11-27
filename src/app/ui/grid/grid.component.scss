@@ -32,7 +32,7 @@ tbody > tr {
 th,
 td {
   border: 1px solid;
-  padding: .25em;
+  padding: .25em .5em;
 
   &:first-child {
     border-left: 0;
@@ -103,16 +103,17 @@ tr:first-child {
 .grid-footer-page {
   font-size: .875em;
   height: 1.5rem;
-  line-height: 1.5rem;
 }
 
 .grid-footer-page {
   margin: 0 .25em;
+  line-height: 1.5rem;
   text-align: center;
   width: 4em;
 }
 
 .grid-footer-button {
+  line-height: calc(1.5rem - 2px);
   padding: 0 .5em;
 }
 

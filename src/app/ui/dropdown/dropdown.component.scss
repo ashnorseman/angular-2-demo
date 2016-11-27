@@ -21,7 +21,16 @@
   border: 1px solid;
   cursor: pointer;
   height: 100%;
-  padding: 0 .5em;
+  padding-left: .5em;
+  padding-right: $form-control-height;
+}
+
+.dropdown-arrow {
+  @include square($form-control-height);
+
+  position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .dropdown-list {
@@ -39,7 +48,7 @@
 .dropdown-item {
   @include ellipsis;
 
-  border-bottom: 1px solid;
+  border-bottom: 1px solid black;
   cursor: pointer;
   padding: 0 .5em;
 
@@ -49,5 +58,10 @@
 
   &:hover {
     background: whitesmoke;
+  }
+
+  &.selected {
+    background: darkgray;
+    color: white;
   }
 }

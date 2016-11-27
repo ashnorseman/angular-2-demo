@@ -11,6 +11,7 @@ import { LoginModule } from './login/login.module';
 import { UIModule } from '../ui/ui.module';
 
 import { AnimationDemoComponent } from './animation-demo/animation-demo.component';
+import { ChartsDemoComponent } from './charts-demo/charts-demo.component';
 import { DataBindingDemoComponent } from './data-binding-demo/data-binding-demo.component';
 import { FormDemoComponent } from './form-demo/form-demo.component';
 import { HttpDemoComponent } from './http-demo/http-demo.component';
@@ -34,6 +35,7 @@ import { GuardService } from '../services/guard.service';
   ],
   declarations: [
     AnimationDemoComponent,
+    ChartsDemoComponent,
     DataBindingDemoComponent,
     FormDemoComponent,
     HttpDemoComponent,

@@ -1,0 +1,9 @@
+<div>
+  Shanghai:
+  <input type="text" [(ngModel)]="chartData[0]">
+  <button type="button"
+          (click)="updateData()">Update</button>
+</div>
+
+<div class="chart-holder"
+     #chartHolder></div>

@@ -4,7 +4,7 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { Tab } from '../../ui/tabs/tab.model';
+import { Tab } from '../../ui/tabs';
 
 
 @Component({
@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
   }, {
     router: 'animation-demo',
     text: 'Animation'
+  }, {
+    router: 'charts-demo',
+    text: 'Charts'
   }];
 
   toolTipDemo: string = 'Tooltip demo';

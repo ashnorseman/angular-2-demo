@@ -1,9 +1,13 @@
 <div class="dropdown-face"
-     (click)="toggle()">{{selected.text}}</div>
+     (click)="toggle()">
+  {{selected.text}}
+  <i class="dropdown-arrow iconfont icon-unfold"></i>
+</div>
 
 <ul class="dropdown-list"
     [@openState]="openState">
   <li *ngFor="let item of data"
       class="dropdown-item"
+      [ngClass]="{ selected: item.value === selected.value }"
       (click)="select(item)">{{item.text}}</li>
 </ul>
