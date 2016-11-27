@@ -1,11 +1,13 @@
-<input type="text"
-       class="date-picker-input"
-       [placeholder]="placeholder"
-       readonly
-       [value]="dateValue | date"
-       (click)="toggle()">
+<div class="date-picker-face"
+     (click)="toggle()">
+  <input type="text"
+         class="date-picker-input"
+         [placeholder]="placeholder"
+         readonly
+         [value]="dateValue | date">
 
-<i class="date-picker-calendar iconfont icon-calendar"></i>
+  <i class="date-picker-calendar iconfont icon-calendar"></i>
+</div>
 
 <div class="date-picker"
      [@openState]="openState">

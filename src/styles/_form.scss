@@ -17,6 +17,7 @@ button {
   border: 1px solid;
   height: $form-control-height;
   padding: 0 .5em;
+  transition: background $duration $timing;
   vertical-align: middle;
   width: $form-control-width;
 

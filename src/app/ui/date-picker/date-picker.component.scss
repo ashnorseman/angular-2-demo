@@ -11,13 +11,16 @@
   display: inline-block;
   vertical-align: middle;
 
-  &.ng-invalid.ng-dirty > .date-picker-input {
+  &.ng-invalid.ng-dirty .date-picker-input {
     border-color: $color-invalid;
   }
 }
 
-.date-picker-input {
+.date-picker-face {
   cursor: pointer;
+}
+
+.date-picker-input {
   padding-right: $form-control-height;
 }
 
