@@ -6,13 +6,33 @@
 // Color
 // ---------------------------
 
+$color-text: #444443;
+$color-text-primary: #03367A;
+
+$color-bg: #F5F5F5;
+$color-border: #CCC;
+
+$color-primary: #0089C4;
+$color-primary-dark: #023176;
+$color-primary-light: #CAE3E9;
+
+$color-side-nav: #003478;
+
 $color-invalid: crimson;
+$color-highlight: #E98300;
 
 
 // Spacing
 // ---------------------------
 
-$gap: 1rem;
+$gap: .625rem;
+$gap-lg: $gap * 2;
+
+$border-radius: .125rem;
+$border-width: .0625rem;
+
+$control-size: 1.875rem;
+$control-size-lg: 3.125rem;
 
 
 // Animation
@@ -29,12 +49,23 @@ $timing: linear;
 
 $line-height: 1.5;
 
+$font-lg: 1rem;
+$font-md: .875rem;
+$font-sm: .75rem;
+
+
 
 // Form
 // ---------------------------
 
-$form-control-height: 2rem;
+$form-control-height: $control-size;
 $form-control-width: 12rem;
+
+
+// Side-bar
+// ---------------------------
+
+$side-nav-width: 8.5rem;
 
 
 // Z-index

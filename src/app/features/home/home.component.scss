@@ -4,21 +4,28 @@
 
 @import '../../../styles/variables';
 
-:host {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  padding: 0 $gap;
-  width: 1200px;
+header {
+  background: $color-primary;
+  box-shadow: 0 .0625rem .1875rem rgba(0, 0, 0, .2);
+  color: white;
+  padding-left: $side-nav-width;
+  padding-right: $gap-lg;
+  position: relative;
+    z-index: 1;
 }
 
 h1 {
-  font-size: 2em;
-  font-weight: 500;
-  margin: $gap 0;
-  text-align: center;
+  display: inline-block;
+  font-size: 1.25rem;
+  line-height: $control-size-lg;
 }
 
 .logout {
-  text-align: right;
+  float: right;
+  font-size: $font-md;
+  line-height: $control-size-lg;
+}
+
+:host /deep/ ph-side-bar {
+  top: $control-size-lg;
 }

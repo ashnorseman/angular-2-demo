@@ -3,15 +3,80 @@
  */
 
 @import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+$login-bg: #E8E7E7;
+$login-width: 50rem;
+
+
+.login-holder {
+  background: $login-bg;
+  display: table;
+  height: 100vh;
+  width: 100%;
+}
 
 .login {
-  margin: $gap * 5 auto;
-  width: max-content;
+  display: table-cell;
+  vertical-align: middle;
+  width: $login-width;
+}
+
+.login-form-content {
+  background: white;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, .25);
+  margin: 0 auto;
+  width: $login-width;
+}
+
+.login-header {
+  background: linear-gradient(120deg, #023176, #05649F);
+  color: white;
+  line-height: 1;
+  padding: 3.75rem 3.25rem 16rem 3.75rem;
+  text-align: left;
 
   h1 {
-    font-size: 2em;
-    font-weight: 500;
-    margin: $gap auto;
-    text-align: center;
+    font-size: 3em;
   }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.login-form-controls {
+  font-size: $font-lg;
+  padding: 3.75rem 3.25rem;
+}
+
+.login-input,
+.login-button {
+  border-radius: .1875rem;
+  float: left;
+  height: $control-size-lg;
+  padding-left: $gap-lg;
+  padding-right: $gap-lg;
+  width: 16rem;
+}
+
+.login-input {
+  line-height: $control-size-lg - $border-width * 2;
+  margin-right: $gap;
+}
+
+.login-button {
+  @include button-dark;
+
+  line-height: $control-size-lg;
+  margin-left: $gap;
+  width: 9.375rem;
+}
+
+.login-remember {
+  clear: both;
+  cursor: pointer;
+  display: block;
+  line-height: 1;
+  padding-top: $gap-lg;
 }

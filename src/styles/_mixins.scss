@@ -4,6 +4,28 @@
 
 @import "variables";
 
+@mixin border($color: $color-border) {
+  border: $border-width solid $color;
+}
+
+/* ----- Button ----- */
+
+@mixin button-dark {
+  background: $color-primary-dark;
+
+  &:focus,
+  &:active {
+    background: darken($color-primary-dark, 5%);
+  }
+}
+
+@mixin button-clear {
+  background: transparent !important;
+  color: $color-text-primary;
+}
+
+/* ----- Button end ----- */
+
 @mixin clearfix {
 
   &::before,
@@ -29,6 +51,16 @@
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+@mixin input-icon {
+  @include square($form-control-height);
+
+  color: $color-primary;
+    font-size: $font-md;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 
@@ -75,8 +107,6 @@
 
 /* ----- Modal end ----- */
 
-/* ----- Toggle ----- */
-
 @mixin toggle {
   overflow: hidden;
   position: relative;
@@ -85,8 +115,6 @@
     overflow: visible;
   }
 }
-
-/* ----- Toggle end ----- */
 
 @mixin ratio($w, $h) {
   position: relative;

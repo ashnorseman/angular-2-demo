@@ -13,9 +13,13 @@ input[type=tel],
 input[type=url],
 input[type=password],
 button {
+  @include border;
+
   background: white;
-  border: 1px solid;
+  border-radius: $border-radius;
+  color: $color-text;
   height: $form-control-height;
+  line-height: $form-control-height - $border-width * 2;
   padding: 0 .5em;
   transition: background $duration $timing;
   vertical-align: middle;
@@ -32,16 +36,29 @@ input[type="checkbox"] {
 }
 
 button {
+  background: $color-primary;
+  border: 0;
+  color: white;
+  line-height: $form-control-height;
   padding: 0 1em;
   width: auto;
 
+  &:focus,
   &:active {
-    background: gainsboro;
+    background: darken($color-primary, 5%);
+  }
+
+  .iconfont {
+    font-size: $font-md;
   }
 }
 
-.button-mini {
-  padding: 0 .5em;
+.button-dark {
+  @include button-dark;
+}
+
+.button-clear {
+  @include button-clear;
 }
 
 

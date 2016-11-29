@@ -1,7 +1,9 @@
-<h1 [phTooltip]="toolTipDemo">Philips Lighting - Angular 2 Demo</h1>
+<header>
+  <h1 [phTooltip]="toolTipDemo">Philips Lighting - Angular 2 Demo</h1>
 
-<div class="logout">
-  <a routerLink="/login">Logout</a>
-</div>
+  <div class="logout">
+    <a routerLink="/login">Logout</a>
+  </div>
+</header>
 
-<ph-tabs [tabs]="tabs"></ph-tabs>
+<ph-side-bar [items]="sideBarNav"></ph-side-bar>
