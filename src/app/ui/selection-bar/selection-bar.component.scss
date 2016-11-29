@@ -1,0 +1,27 @@
+/**
+ * Selection bar
+ */
+
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+:host {
+  background: white;
+  display: block;
+  padding: $gap $gap-lg;
+}
+
+:host /deep/ label {
+  color: $color-text-primary;
+  line-height: $form-control-height;
+  margin-left: $gap * 3;
+  margin-right: 1em;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+:host /deep/ .select-bar-right {
+  float: right;
+}

@@ -9,7 +9,7 @@ $grid-height: 2.25rem;
 
 :host {
   display: block;
-  height: 30em;
+  height: 30rem;
   position: relative;
 }
 
@@ -23,6 +23,7 @@ table {
 }
 
 tbody > tr {
+  border-top: $border-width solid $color-border-light;
   cursor: pointer;
 
   &:hover {
@@ -30,12 +31,12 @@ tbody > tr {
   }
 }
 
-th,
 td {
   padding: .25em .5em;
 }
 
 th {
+  height: $grid-height;
   color: $color-text-primary;
 }
 
@@ -51,6 +52,7 @@ th {
 }
 
 .grid-header {
+  border-bottom: $border-width solid $color-border-light;
   position: absolute;
     top: 0;
     right: 0;
@@ -61,7 +63,7 @@ th {
 .grid-data {
   @include full-size;
 
-  top: 2em;
+  top: $grid-height;
   bottom: 2.5em;
   overflow-y: scroll;
 }
@@ -72,6 +74,7 @@ th {
 
 .grid-footer {
   align-items: center;
+  border-top: $border-width solid $color-border-light;
   box-sizing: content-box;
   display: flex;
   justify-content: flex-end;

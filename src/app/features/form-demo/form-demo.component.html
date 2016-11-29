@@ -8,134 +8,169 @@
   <div ngModelGroup="user">
     <div class="form-group">
       <label>Name (text): </label>
-      <input type="text"
-             name="name"
-             placeholder="Name"
-             maxlength="50"
-             minlength="2"
-             required
-             #controlName="ngModel"
-             ngModel>
-      (required & maxlength & minlength)
 
-      <span *ngIf="controlName.invalid && controlName.touched">Error: 2–50 characters</span>
+      <div class="form-control">
+        <input type="text"
+               name="name"
+               placeholder="Name"
+               maxlength="50"
+               minlength="2"
+               required
+               #controlName="ngModel"
+               ngModel>
+        (required & maxlength & minlength)
+
+        <span *ngIf="controlName.invalid && controlName.touched">Error: 2–50 characters</span>
+      </div>
     </div>
 
     <div class="form-group">
       <label>Age (number): </label>
-      <input type="number"
-             name="age"
-             placeholder="Age"
-             phMax="150"
-             phMin="0"
-             required
-             ngModel>
-      (custom max & min validator)
+
+      <div class="form-control">
+        <input type="number"
+               name="age"
+               placeholder="Age"
+               phMax="150"
+               phMin="0"
+               required
+               ngModel>
+        (custom max & min validator)
+      </div>
     </div>
 
     <div class="form-group">
       <label>Email (email): </label>
-      <input type="email"
-             name="email"
-             placeholder="Email"
-             maxlength="50"
-             required
-             phEmail
-             ngModel="corvine@qq.com">
-      (custom email validator)
+
+      <div class="form-control">
+        <input type="email"
+               name="email"
+               placeholder="Email"
+               maxlength="50"
+               required
+               phEmail
+               ngModel="corvine@qq.com">
+        (custom email validator)
+      </div>
     </div>
 
     <div class="form-group">
       <label>Mobile (tel): </label>
-      <input type="tel"
-             name="mobile"
-             placeholder="Mobile"
-             maxlength="11"
-             minlength="11"
-             required
-             ngModel>
+
+      <div class="form-control">
+        <input type="tel"
+               name="mobile"
+               placeholder="Mobile"
+               maxlength="11"
+               minlength="11"
+               required
+               ngModel>
+      </div>
     </div>
 
     <div class="form-group">
       <label>Home Page (url): </label>
-      <input type="url"
-             name="homepage"
-             placeholder="Home Page"
-             pattern="^https?://"
-             required
-             ngModel>
-      (pattern: start with 'http://')
+
+      <div class="form-control">
+        <input type="url"
+               name="homepage"
+               placeholder="Home Page"
+               pattern="^https?://"
+               required
+               ngModel>
+        (pattern: start with 'http://')
+      </div>
     </div>
 
     <div class="form-group">
       <label>Password (password): </label>
-      <input type="password"
-             name="password"
-             placeholder="Password"
-             required
-             ngModel>
+
+      <div class="form-control">
+        <input type="password"
+               name="password"
+               placeholder="Password"
+               required
+               ngModel>
+      </div>
     </div>
 
     <div class="form-group">
       <label>Gender: </label>
-      <ph-dropdown name="gender"
-                   [data]="dropdownData"
-                   ngModel></ph-dropdown>
-      (custom dropdown component)
+
+      <div class="form-control">
+        <ph-dropdown name="gender"
+                     [data]="dropdownData"
+                     ngModel></ph-dropdown>
+        (custom dropdown component)
+      </div>
     </div>
 
     <div class="form-group">
       <label>Date of Birth: </label>
-      <ph-date-picker name="dob"
-                      [phMax]="now"
-                      [phMin]="minDob"
-                      ngModel></ph-date-picker>
-      (custom date picker, with max & min validators)
+
+      <div class="form-control">
+        <ph-date-picker name="dob"
+                        [phMax]="now"
+                        [phMin]="minDob"
+                        ngModel></ph-date-picker>
+        (custom date picker, with max & min validators)
+      </div>
     </div>
 
     <div class="form-group">
       <label>Active: </label>
 
-      <input type="checkbox"
-             name="active"
-             ngModel>
+     <div class="form-control">
+       <input type="checkbox"
+              name="active"
+              ngModel>
 
-      (checkbox: boolean)
+       (checkbox: boolean)
+     </div>
     </div>
 
     <div class="form-group">
       <label>Interests: </label>
 
-      <ph-check-list name="interests"
-                     [data]="interests"
-                     ngModel></ph-check-list>
+      <div class="form-control">
+        <ph-check-list name="interests"
+                       [data]="interests"
+                       ngModel></ph-check-list>
 
-      (checkbox list)
+        (checkbox list)
+      </div>
     </div>
 
     <div class="form-group">
       <label>Receive message: </label>
 
-      <label>
-        <input type="radio"
-               name="receive"
-               [value]="true"
-               ngModel> Yes
-      </label>
+      <div class="form-control">
+        <label>
+          <input type="radio"
+                 name="receive"
+                 [value]="true"
+                 ngModel> Yes
+        </label>
 
-      <label>
-        <input type="radio"
-               name="receive"
-               [value]="false"
-               ngModel> No
-      </label>
+        <label>
+          <input type="radio"
+                 name="receive"
+                 [value]="false"
+                 ngModel> No
+        </label>
 
-      (true / false)
+        (true / false)
+      </div>
     </div>
   </div>
 
-  <button type="submit"
-          [disabled]="signupForm.invalid">Sign up</button>
+  <div class="form-confirm">
+    <button type="button" class="form-cancel-button">Cancel</button>
+
+    <button type="submit"
+            class="form-submit-button"
+            [disabled]="signupForm.invalid">Sign up</button>
+  </div>
 </form>
 
 <h2>Reactive Form</h2>
@@ -147,18 +182,27 @@
       [formGroup]="timeControls">
   <div class="form-group">
     <label>From: </label>
-    <ph-date-picker name="start"
-                    placeholder="Pick start date"
-                    formControlName="start"></ph-date-picker>
+
+    <div class="form-control">
+      <ph-date-picker name="start"
+                      placeholder="Pick start date"
+                      formControlName="start"></ph-date-picker>
+    </div>
   </div>
 
   <div class="form-group">
     <label>To: </label>
-    <ph-date-picker name="end"
-                    placeholder="Pick end date"
-                    formControlName="end"></ph-date-picker>
+
+    <div class="form-control">
+      <ph-date-picker name="end"
+                      placeholder="Pick end date"
+                      formControlName="end"></ph-date-picker>
+    </div>
   </div>
 
-  <button type="submit"
-          [disabled]="timeForm.invalid">Save</button>
+  <div class="form-confirm">
+    <button type="submit"
+            class="form-submit-button"
+            [disabled]="timeForm.invalid">Save</button>
+  </div>
 </form>

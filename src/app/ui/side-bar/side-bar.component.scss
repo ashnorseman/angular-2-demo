@@ -10,8 +10,10 @@
 }
 
 .side-bar-nav {
+  @include full-size();
+
   height: 100%;
-  float: left;
+  right: auto;
   width: $side-nav-width;
 }
 
@@ -58,7 +60,9 @@
 }
 
 .side-bar-content {
+  @include full-size();
+
   height: 100%;
-  margin-left: $side-nav-width;
-  padding: $gap / 2 $gap;
+  left: $side-nav-width;
+  overflow: auto;
 }

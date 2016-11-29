@@ -10,6 +10,11 @@
 
 /* ----- Button ----- */
 
+@mixin button-clear {
+  background: transparent !important;
+  color: $color-text-primary;
+}
+
 @mixin button-dark {
   background: $color-primary-dark;
 
@@ -19,9 +24,16 @@
   }
 }
 
-@mixin button-clear {
+@mixin button-hollow {
+  @include border($color-primary);
+
   background: transparent !important;
-  color: $color-text-primary;
+  color: $color-primary;
+}
+
+@mixin button-icon {
+  padding: 0;
+  width: $form-control-height;
 }
 
 /* ----- Button end ----- */
@@ -107,15 +119,6 @@
 
 /* ----- Modal end ----- */
 
-@mixin toggle {
-  overflow: hidden;
-  position: relative;
-
-  &.opened {
-    overflow: visible;
-  }
-}
-
 @mixin ratio($w, $h) {
   position: relative;
 
@@ -130,4 +133,13 @@
   line-height: $size;
   text-align: center;
   width: $size;
+}
+
+@mixin toggle {
+  overflow: hidden;
+  position: relative;
+
+  &.opened {
+    overflow: visible;
+  }
 }

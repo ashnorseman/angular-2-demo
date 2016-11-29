@@ -12,6 +12,7 @@ input[type=email],
 input[type=tel],
 input[type=url],
 input[type=password],
+input[type=search],
 button {
   @include border;
 
@@ -48,17 +49,29 @@ button {
     background: darken($color-primary, 5%);
   }
 
-  .iconfont {
-    font-size: $font-md;
+  &:disabled {
+    opacity: .7;
   }
+
+  .iconfont {
+    font-size: $font-lg;
+  }
+}
+
+.button-clear {
+  @include button-clear;
 }
 
 .button-dark {
   @include button-dark;
 }
 
-.button-clear {
-  @include button-clear;
+.button-hollow {
+  @include button-hollow;
+}
+
+.button-icon {
+  @include button-icon;
 }
 
 
@@ -71,4 +84,35 @@ button {
   &:focus {
     background: white;
   }
+}
+
+
+// Form
+// ---------------------------
+
+form {
+  padding: $gap-lg;
+}
+
+.form-group {
+  @include clearfix;
+
+  > label {
+    float: left;
+    width: 30%;
+  }
+}
+
+.form-control {
+  float: left;
+  width: 70%;
+}
+
+.form-cancel-button,
+.form-submit-button {
+  width: 6.25rem;
+}
+
+.form-cancel-button {
+  @extend .button-hollow;
 }

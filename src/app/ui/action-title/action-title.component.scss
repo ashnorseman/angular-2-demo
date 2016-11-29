@@ -1,0 +1,24 @@
+/**
+ * Action title
+ */
+
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+:host {
+  background: $color-primary;
+  color: white;
+  display: block;
+  line-height: $control-size-lg;
+  padding-left: $gap-lg;
+  padding-right: $gap;
+}
+
+h1 {
+  display: inline-block;
+  font-size: $font-lg;
+}
+
+.action-list {
+  float: right;
+}

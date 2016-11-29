@@ -6,13 +6,13 @@
 @import "../../../styles/mixins";
 
 .tabs {
-  color: $color-text-primary;
-  font-size: $font-lg;
-  padding: 0 $gap / 2;
+  background: $color-primary-dark;
+  color: white;
+  font-size: $font-md;
 }
 
 .tab-link {
-  background: white;
+  background: $color-primary-dark;
   display: inline-block;
   line-height: $control-size-lg;
   padding: 0 $gap * 3;
@@ -20,11 +20,11 @@
   transition: background $duration-short $timing;
 
   &:hover {
-    background: whitesmoke;
+    background: mix($color-primary, $color-primary-dark);
   }
 
   &::before {
-    @include full-size();
+    @include full-size;
 
     background: currentColor;
     content: '';
@@ -37,8 +37,4 @@
     transform: scaleX(1);
     transition: transform $duration-short $timing;
   }
-}
-
-.tab-content {
-  padding: $gap;
 }

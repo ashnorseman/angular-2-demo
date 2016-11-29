@@ -14,8 +14,10 @@ import { AnimationDemoComponent } from './animation-demo/animation-demo.componen
 import { ChartsDemoComponent } from './charts-demo/charts-demo.component';
 import { DataBindingDemoComponent } from './data-binding-demo/data-binding-demo.component';
 import { FormDemoComponent } from './form-demo/form-demo.component';
+import { GridDemoComponent } from './data-binding-demo/grid/grid-demo.component';
 import { HttpDemoComponent } from './http-demo/http-demo.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { TwoWayComponent } from './data-binding-demo/two-way/two-way.component';
 
 import { Resource } from '../services/resources/resource';
 import { AuthenticationService } from '../services/authentication.service';
@@ -38,8 +40,10 @@ import { GuardService } from '../services/guard.service';
     ChartsDemoComponent,
     DataBindingDemoComponent,
     FormDemoComponent,
+    GridDemoComponent,
     HttpDemoComponent,
-    PipeDemoComponent
+    PipeDemoComponent,
+    TwoWayComponent
   ],
   providers: [
     Resource,
