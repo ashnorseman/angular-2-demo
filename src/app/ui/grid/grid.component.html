@@ -45,7 +45,7 @@
   <button type="button"
           class="grid-footer-button"
           [disabled]="previousDisabled"
-          (click)="previousPage()">上一页</button>
+          (click)="previousPage()">«</button>
   <input type="number"
          class="grid-footer-page"
          [(ngModel)]="options.query.currentPage"
@@ -53,5 +53,5 @@
   <button type="button"
           class="grid-footer-button"
           [disabled]="nextDisabled"
-          (click)="nextPage()">下一页</button>
+          (click)="nextPage()">»</button>
 </footer>

@@ -9,6 +9,7 @@ import { DatePickerModule } from './date-picker';
 import { DialogModule } from './dialog';
 import { DropdownModule } from './dropdown';
 import { GridModule } from './grid';
+import { SideBarModule } from './side-bar';
 import { TabModule } from './tabs';
 import { ToolTipModule } from './tooltip';
 import { ValidatorModule } from './validators';
@@ -20,6 +21,7 @@ const modules = [
   DialogModule,
   DropdownModule,
   GridModule,
+  SideBarModule,
   TabModule,
   ToolTipModule,
   ValidatorModule

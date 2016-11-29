@@ -6,13 +6,16 @@
 @import "../../../styles/mixins";
 
 .tabs {
+  color: $color-text-primary;
+  font-size: $font-lg;
   padding: 0 $gap / 2;
 }
 
 .tab-link {
   background: white;
   display: inline-block;
-  padding: .5em $gap;
+  line-height: $control-size-lg;
+  padding: 0 $gap * 3;
   position: relative;
   transition: background $duration-short $timing;
 

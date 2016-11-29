@@ -25,11 +25,7 @@
 }
 
 .date-picker-calendar {
-  @include square($form-control-height);
-
-  position: absolute;
-    top: 0;
-    right: 0;
+  @include input-icon;
 }
 
 .date-picker {
@@ -56,6 +52,11 @@
   border-bottom: 1px solid;
   padding: .25em .5em;
   text-align: center;
+}
+
+.date-picker-prev,
+.date-picker-next {
+  @include button-clear;
 }
 
 .date-picker-prev {

@@ -1,0 +1,64 @@
+/**
+ * Side-bar & container
+ */
+
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+:host {
+  @include full-size();
+}
+
+.side-bar-nav {
+  height: 100%;
+  float: left;
+  width: $side-nav-width;
+}
+
+.side-bar {
+  display: table;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.side-bar-item {
+  display: table-row;
+}
+
+.side-bar-link {
+  background: $color-side-nav;
+  color: white;
+  display: table-cell;
+  font-size: $font-lg;
+  position: relative;
+  vertical-align: middle;
+
+  &:hover,
+  &.active {
+    background: $color-bg;
+    color: $color-side-nav;
+  }
+}
+
+.side-bar-icon {
+  display: block;
+  font-size: 2.25rem;
+}
+
+.side-bar-badge {
+  @include square(1.5rem);
+
+  background: $color-highlight;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+    top: 1rem;
+    right: 2rem;
+}
+
+.side-bar-content {
+  height: 100%;
+  margin-left: $side-nav-width;
+  padding: $gap / 2 $gap;
+}

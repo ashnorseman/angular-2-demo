@@ -1,0 +1,19 @@
+<nav class="side-bar-nav">
+  <ul class="side-bar">
+    <li *ngFor="let item of items"
+        class="side-bar-item">
+      <a class="side-bar-link"
+         [routerLink]="item.router"
+         routerLinkActive="active">
+        <span *ngIf="item.badge !== undefined"
+              class="side-bar-badge">{{item.badge}}</span>
+        <i [ngClass]="'side-bar-icon iconfont icon-' + item.icon"></i>
+        <span class="side-bar-text">{{item.text}}</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="side-bar-content">
+  <router-outlet></router-outlet>
+</div>

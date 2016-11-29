@@ -8,6 +8,7 @@
 :host {
   @include toggle;
 
+  color: $color-text-primary;
   display: inline-block;
   height: $form-control-height;
   line-height: $form-control-height * 0.95;
@@ -16,9 +17,10 @@
 }
 
 .dropdown-face {
+  @include border;
   @include ellipsis;
 
-  border: 1px solid;
+  border-radius: $border-radius;
   cursor: pointer;
   height: 100%;
   padding-left: .5em;
@@ -26,16 +28,14 @@
 }
 
 .dropdown-arrow {
-  @include square($form-control-height);
-
-  position: absolute;
-    top: 0;
-    right: 0;
+  @include input-icon;
 }
 
 .dropdown-list {
+  @include border;
+
   background: white;
-  border: 1px solid;
+  border-radius: $border-radius;
   margin-top: -1px;
   max-height: 20em;
   overflow: auto;
@@ -48,20 +48,15 @@
 .dropdown-item {
   @include ellipsis;
 
-  border-bottom: 1px solid black;
   cursor: pointer;
-  padding: 0 .5em;
-
-  &:last-child {
-    border-bottom: 0;
-  }
+  padding: 0 $gap;
 
   &:hover {
-    background: whitesmoke;
+    background: $color-primary-light;
+    color: $color-primary;
   }
 
   &.selected {
-    background: darkgray;
-    color: white;
+    color: $color-primary;
   }
 }

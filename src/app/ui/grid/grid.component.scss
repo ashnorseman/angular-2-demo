@@ -5,8 +5,9 @@
 @import "../../../styles/variables";
 @import "../../../styles/mixins";
 
+$grid-height: 2.25rem;
+
 :host {
-  border: 1px solid;
   display: block;
   height: 30em;
   position: relative;
@@ -31,20 +32,11 @@ tbody > tr {
 
 th,
 td {
-  border: 1px solid;
   padding: .25em .5em;
-
-  &:first-child {
-    border-left: 0;
-  }
 }
 
-tr:first-child {
-
-  > th,
-  > td {
-    border-top: 0;
-  }
+th {
+  color: $color-text-primary;
 }
 
 .grid-select {
@@ -59,23 +51,18 @@ tr:first-child {
 }
 
 .grid-header {
-  border-bottom: 1px solid;
   position: absolute;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1;
-
-  th {
-    border-bottom: 0;
-  }
 }
 
 .grid-data {
   @include full-size;
 
   top: 2em;
-  bottom: 2em;
+  bottom: 2.5em;
   overflow-y: scroll;
 }
 
@@ -85,12 +72,10 @@ tr:first-child {
 
 .grid-footer {
   align-items: center;
-  border-top: 1px solid;
   box-sizing: content-box;
   display: flex;
-  height: 2em;
   justify-content: flex-end;
-  padding: 0 .25em;
+  padding: .25em;
   position: absolute;
     bottom: 0;
     right: 0;
@@ -113,8 +98,9 @@ tr:first-child {
 }
 
 .grid-footer-button {
+  @include button-clear;
+
   line-height: calc(1.5rem - 2px);
-  padding: 0 .5em;
 }
 
 
