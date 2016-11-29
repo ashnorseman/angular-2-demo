@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 
 import { ActionTitleModule } from './action-title';
 import { CheckListModule } from './check-list';
+import { DataListModule } from './data-list';
 import { DatePickerModule } from './date-picker';
 import { DialogModule } from './dialog';
 import { DropdownModule } from './dropdown';
@@ -21,6 +22,7 @@ import { ValidatorModule } from './validators';
 const modules = [
   ActionTitleModule,
   CheckListModule,
+  DataListModule,
   DatePickerModule,
   DialogModule,
   DropdownModule,

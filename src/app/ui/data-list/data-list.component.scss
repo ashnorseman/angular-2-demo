@@ -1,0 +1,23 @@
+/**
+ * Data-list
+ */
+
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.data-list {
+  line-height: 2.25rem;
+}
+
+.data-list-item {
+
+  &:nth-child(even) {
+    background: $color-bg-light;
+  }
+}
+
+.data-list-title {
+  display: inline-block;
+  padding: 0 $gap-lg;
+  width: 30%;
+}

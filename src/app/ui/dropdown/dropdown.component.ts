@@ -41,7 +41,7 @@ const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   ]
 })
 export class DropdownComponent extends AbstractToggleComponent implements ControlValueAccessor, OnInit {
-  @Input() data: DropdownItem[] = <DropdownItem[]>[];
+  @Input() data: DropdownItem[] = [];
   @Input() placeholder: string;
 
   private selected: DropdownItem = <DropdownItem>{};

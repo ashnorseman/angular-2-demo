@@ -17,7 +17,7 @@ import { CheckboxItem } from '../../ui/check-list';
 })
 export class FormDemoComponent implements OnInit {
 
-  dropdownData: DropdownItem[] = <DropdownItem[]>[{
+  dropdownData: DropdownItem[] = [{
     text: 'Male',
     value: 1
   }, {
@@ -25,7 +25,7 @@ export class FormDemoComponent implements OnInit {
     value: 2
   }];
 
-  interests: CheckboxItem[] = <CheckboxItem[]>[{
+  interests: CheckboxItem[] = [{
     text: 'Art',
     value: 'art'
   }, {
